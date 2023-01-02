@@ -1,14 +1,15 @@
 package learn.words;
 
-import learn.words.dialogs.AbstractDialog;
-import learn.words.dialogs.MainDialog;
+import learn.words.windows.AbstractWindow;
+import learn.words.windows.MainWindow;
 
 public class App {
 
     public static void main(String[] args) {
         javax.swing.SwingUtilities.invokeLater(() -> {
-            AbstractDialog mainAbstractDialog = new MainDialog();
-            mainAbstractDialog.renderWindow();
+            AbstractWindow mainWindow = new MainWindow();
+            mainWindow.renderWindow();
+            mainWindow.createElements();
         });
     }
 }

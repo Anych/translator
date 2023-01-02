@@ -1,6 +1,6 @@
 package learn.words.buttons;
 
-import learn.words.dialogs.AbstractDialog;
+import learn.words.windows.AbstractWindow;
 
-public record GridButtonOptions(AbstractDialog dialog, String buttonName, int gridX, int gridY) {
+public record GridButtonOptions(AbstractWindow dialog, String buttonName, int gridX, int gridY) {
 }
