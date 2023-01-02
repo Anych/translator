@@ -1,6 +1,9 @@
 package learn.words;
 
-public class Main {
+import learn.words.dialogs.Dialog;
+import learn.words.dialogs.MainDialog;
+
+public class App {
 
     public static void main(String[] args) {
         javax.swing.SwingUtilities.invokeLater(() -> {

@@ -1,9 +1,9 @@
-package learn.words;
+package learn.words.buttons;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class GridButton implements Button {
+public class GridButton extends Button {
 
     private GridBagConstraints constraints;
     private String buttonName;
@@ -49,5 +49,9 @@ public class GridButton implements Button {
     }
 
     @Override
-    public void onClick() {}
+    public void onClick(JFrame frame) {
+        button.addActionListener(e -> {
+            frame.setVisible(false);
+        });
+    }
 }

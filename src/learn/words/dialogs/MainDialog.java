@@ -1,32 +1,25 @@
-package learn.words;
+package learn.words.dialogs;
 
+import learn.words.buttons.GridButton;
+import learn.words.buttons.GridButtonOptions;
 import javax.swing.*;
 import java.awt.*;
 
 public class MainDialog extends Dialog {
-
     private GridBagConstraints constraints;
     private Container pane;
-    private final JFrame frame;
 
     public MainDialog(String name) {
-        this.frame = new JFrame(name);
+        super(name);
     }
 
     @Override
     public void renderWindow() {
-        setFrameOptions();
+        setFrameOptions(400, 90);
         setPaneOptions();
         setConstraints();
 
         setButtonsListToCreate();
-    }
-
-    private void setFrameOptions() {
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 90);
-        frame.setVisible(true);
-        frame.setResizable(false);
     }
 
     private void setPaneOptions() {
@@ -49,6 +42,7 @@ public class MainDialog extends Dialog {
         GridButton button = setButtonOptions(options);
         button.render();
         button.create();
+        button.onClick(frame);
 
         pane.add(button.getButton(), constraints);
     }
