@@ -1,5 +1,7 @@
 package learn.words.buttons;
 
+import learn.words.dialogs.AbstractDialog;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -10,8 +12,15 @@ public class GridButton extends Button {
     private int gridX;
     private int gridY;
     private JButton button;
+    GridButtonOptions options;
+    AbstractDialog dialog;
 
     public void setButtonOptions(GridButtonOptions options) {
+        this.options = options;
+    }
+
+    public void setOptionsFields() {
+        setDialog(options.dialog());
         setButtonName(options.buttonName());
         setGridX(options.gridX());
         setGridY(options.gridY());
@@ -32,6 +41,9 @@ public class GridButton extends Button {
     private void setGridY(int gridY) {
         this.gridY = gridY;
     }
+    private void setDialog(AbstractDialog dialog) {
+        this.dialog = dialog;
+    }
 
     public JButton getButton() {
         return button;
@@ -49,9 +61,7 @@ public class GridButton extends Button {
     }
 
     @Override
-    public void onClick(JFrame frame) {
-        button.addActionListener(e -> {
-            frame.setVisible(false);
-        });
+    public void onClick() {
+        button.addActionListener(e -> dialog.renderWindow());
     }
 }

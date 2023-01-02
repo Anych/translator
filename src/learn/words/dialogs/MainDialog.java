@@ -2,15 +2,16 @@ package learn.words.dialogs;
 
 import learn.words.buttons.GridButton;
 import learn.words.buttons.GridButtonOptions;
+
 import javax.swing.*;
 import java.awt.*;
 
-public class MainDialog extends Dialog {
+public class MainDialog extends AbstractDialog {
     private GridBagConstraints constraints;
     private Container pane;
 
-    public MainDialog(String name) {
-        super(name);
+    public MainDialog() {
+        this.frame = new JFrame("Слова бегом");
     }
 
     @Override
@@ -32,17 +33,21 @@ public class MainDialog extends Dialog {
     }
 
     private void setButtonsListToCreate() {
-        createParticularButtonOnPane(new GridButtonOptions("Добавить слово", 0, 0));
-        createParticularButtonOnPane(new GridButtonOptions("Выучить новые слова", 1, 0));
-        createParticularButtonOnPane(new GridButtonOptions("Повторить выученные слова", 0, 1));
-        createParticularButtonOnPane(new GridButtonOptions("Посмотреть список слов", 1, 1));
+        createParticularButtonOnPane(new GridButtonOptions(
+                new TranslateWordDialog(frame), "Добавить слово", 0, 0));
+        createParticularButtonOnPane(new GridButtonOptions(
+                this, "Выучить новые слова", 1, 0));
+        createParticularButtonOnPane(new GridButtonOptions(
+                this, "Повторить выученные слова", 0, 1));
+        createParticularButtonOnPane(new GridButtonOptions(
+                this, "Посмотреть список слов", 1, 1));
     }
 
     private void createParticularButtonOnPane(GridButtonOptions options) {
         GridButton button = setButtonOptions(options);
         button.render();
         button.create();
-        button.onClick(frame);
+        button.onClick();
 
         pane.add(button.getButton(), constraints);
     }
@@ -51,6 +56,7 @@ public class MainDialog extends Dialog {
         GridButton button = createButton();
         button.setConstraints(constraints);
         button.setButtonOptions(options);
+        button.setOptionsFields();
 
         return button;
     }

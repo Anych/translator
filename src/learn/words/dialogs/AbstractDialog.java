@@ -4,12 +4,9 @@ import learn.words.buttons.Button;
 
 import javax.swing.*;
 
-public abstract class Dialog {
-    protected final JFrame frame;
+public abstract class AbstractDialog {
+    protected JFrame frame;
 
-    public Dialog(String name) {
-        this.frame = new JFrame(name);
-    }
     public abstract void renderWindow();
 
     protected void setFrameOptions(int width, int height) {
