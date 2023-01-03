@@ -1,12 +1,12 @@
 package learn.words.buttons.gridButton;
 
-import learn.words.buttons.Button;
+import learn.words.buttons.AbstractButton;
 import learn.words.windows.AbstractWindow;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class GridButton extends Button {
+public class GridButton implements AbstractButton {
     GridButtonOptions options;
     AbstractWindow newWindow;
     JFrame frame;

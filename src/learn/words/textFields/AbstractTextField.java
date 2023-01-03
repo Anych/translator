@@ -1,5 +1,6 @@
 package learn.words.textFields;
 
-interface AbstractTextField {
-    void render();
+public interface AbstractTextField {
+    abstract void render();
+    abstract void create();
 }
