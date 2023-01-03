@@ -1,12 +1,12 @@
-package learn.words.buttons;
+package learn.words.buttons.gridButton;
 
+import learn.words.buttons.Button;
 import learn.words.windows.AbstractWindow;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class GridButton extends Button {
-
     private GridBagConstraints constraints;
     private String buttonName;
     private int gridX;
@@ -19,7 +19,7 @@ public class GridButton extends Button {
         this.options = options;
     }
 
-    public void setOptionsFields() {
+    public void setButtonFields() {
         setDialog(options.dialog());
         setButtonName(options.buttonName());
         setGridX(options.gridX());
@@ -41,6 +41,7 @@ public class GridButton extends Button {
     private void setGridY(int gridY) {
         this.gridY = gridY;
     }
+
     private void setDialog(AbstractWindow dialog) {
         this.dialog = dialog;
     }
@@ -56,12 +57,16 @@ public class GridButton extends Button {
         constraints.gridy = gridY;
     }
 
+    @Override
     public void create() {
         button = new JButton(buttonName);
     }
 
     @Override
     public void onClick() {
-        button.addActionListener(e -> dialog.renderWindow());
+        button.addActionListener(e -> {
+            dialog.renderWindow();
+            dialog.createElements();
+        });
     }
 }

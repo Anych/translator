@@ -1,4 +1,4 @@
-package learn.words.buttons;
+package learn.words.buttons.gridButton;
 
 import learn.words.windows.AbstractWindow;
 
