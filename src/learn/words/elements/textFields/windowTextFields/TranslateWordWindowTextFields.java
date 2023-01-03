@@ -17,8 +17,8 @@ public class TranslateWordWindowTextFields {
     }
 
     public void createTextFields() {
-        createParticularTextFieldOnPane(new GridTextOptions(0, 0));
-        createParticularTextFieldOnPane(new GridTextOptions(2, 0));
+        createParticularTextFieldOnPane(new GridTextOptions(0, 0, true));
+        createParticularTextFieldOnPane(new GridTextOptions(2, 0, false));
     }
 
     protected void createParticularTextFieldOnPane(GridTextOptions options) {
@@ -34,6 +34,5 @@ public class TranslateWordWindowTextFields {
     protected void setTextFieldOptions(GridTextOptions options, GridTextField gridTextField) {
         gridTextField.setConstraints(constraints);
         gridTextField.setOptions(options);
-        gridTextField.setRecordFields();
     }
 }

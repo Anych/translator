@@ -1,7 +1,7 @@
 package learn.words.elements.buttons.windowGridButtons;
 
-import learn.words.elements.buttons.gridButton.GridButton;
-import learn.words.elements.buttons.gridButton.GridButtonOptions;
+import learn.words.elements.buttons.gridButton.OpenNewWindowGridButton;
+import learn.words.elements.buttons.gridButton.OpenNewWindowGridButtonOptions;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,8 +19,8 @@ public abstract class WindowGridButtons {
 
     public abstract void createButtons();
 
-    protected void createParticularButtonOnPane(GridButtonOptions options) {
-        GridButton button = new GridButton();
+    protected void createParticularButtonOnPane(OpenNewWindowGridButtonOptions options) {
+        OpenNewWindowGridButton button = new OpenNewWindowGridButton();
         setButtonOptions(options, button);
 
         button.render();
@@ -30,9 +30,8 @@ public abstract class WindowGridButtons {
         pane.add(button.getButton(), constraints);
     }
 
-    protected void setButtonOptions(GridButtonOptions options, GridButton button) {
+    protected void setButtonOptions(OpenNewWindowGridButtonOptions options, OpenNewWindowGridButton button) {
         button.setConstraints(constraints);
         button.setOptions(options);
-        button.setRecordFields();
     }
 }

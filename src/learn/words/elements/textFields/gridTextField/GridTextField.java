@@ -9,8 +9,6 @@ import java.awt.*;
 public class GridTextField implements AbstractTextField, ElementOptions {
     GridTextOptions options;
     private GridBagConstraints constraints;
-    private int gridX;
-    private int gridY;
     private JTextField textField;
 
     @Override
@@ -19,21 +17,8 @@ public class GridTextField implements AbstractTextField, ElementOptions {
     }
 
     @Override
-    public void setRecordFields() {
-        setGridX(options.gridX());
-        setGridY(options.gridY());
-    }
-
     public void setConstraints(GridBagConstraints constraints) {
         this.constraints = constraints;
-    }
-
-    public void setGridX(int gridX) {
-        this.gridX = gridX;
-    }
-
-    public void setGridY(int gridY) {
-        this.gridY = gridY;
     }
 
     public JTextField getTextField() {
@@ -43,13 +28,14 @@ public class GridTextField implements AbstractTextField, ElementOptions {
     @Override
     public void render() {
         constraints.fill = GridBagConstraints.HORIZONTAL;
-        constraints.gridx = gridX;
-        constraints.gridy = gridY;
+        constraints.gridx = options.gridX();
+        constraints.gridy = options.gridY();
         constraints.gridwidth = 2;
     }
 
     @Override
     public void create() {
         textField = new JTextField(30);
+        textField.setEditable(options.isEditable());
     }
 }

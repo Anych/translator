@@ -8,7 +8,11 @@ import javax.swing.*;
 
 public class TranslateWordWindow extends AbstractWindow {
 
+    private static final int WIDTH = 690;
+    private static final int HEIGHT = 140;
+
     public TranslateWordWindow() {
+        super(WIDTH, HEIGHT);
         this.frame = new JFrame("Переводчик");
     }
 
@@ -23,6 +27,6 @@ public class TranslateWordWindow extends AbstractWindow {
 
     @Override
     protected void setWindowSize() {
-        frame.setSize(690, 140);
+        frame.setSize(WIDTH, HEIGHT);
     }
 }

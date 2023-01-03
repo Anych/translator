@@ -1,6 +1,6 @@
 package learn.words.elements.buttons.windowGridButtons;
 
-import learn.words.elements.buttons.gridButton.GridButtonOptions;
+import learn.words.elements.buttons.gridButton.OpenNewWindowGridButtonOptions;
 import learn.words.windows.TranslateWordWindow;
 
 import javax.swing.*;
@@ -14,13 +14,13 @@ public class MainWindowButtons extends WindowGridButtons {
 
     @Override
     public void createButtons() {
-        createParticularButtonOnPane(new GridButtonOptions(
+        createParticularButtonOnPane(new OpenNewWindowGridButtonOptions(
                 new TranslateWordWindow(), frame, "Добавить слово", 0, 0));
-        createParticularButtonOnPane(new GridButtonOptions(
+        createParticularButtonOnPane(new OpenNewWindowGridButtonOptions(
                 new TranslateWordWindow(), frame, "Выучить новые слова", 1, 0));
-        createParticularButtonOnPane(new GridButtonOptions(
+        createParticularButtonOnPane(new OpenNewWindowGridButtonOptions(
                 new TranslateWordWindow(), frame, "Повторить выученные слова", 0, 1));
-        createParticularButtonOnPane(new GridButtonOptions(
+        createParticularButtonOnPane(new OpenNewWindowGridButtonOptions(
                 new TranslateWordWindow(), frame, "Посмотреть список слов", 1, 1));
     }
 }
