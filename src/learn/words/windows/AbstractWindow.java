@@ -8,12 +8,17 @@ public abstract class AbstractWindow {
     protected Container pane;
     protected GridBagConstraints constraints;
 
-    public abstract void renderWindow();
     public abstract void createElements();
 
-    protected void setFrameOptions(int width, int height) {
+    public void renderWindow() {
+        setPaneOptions();
+        setConstraints();
+        setFrameOptions();
+        setWindowSize();
+    }
+
+    protected void setFrameOptions() {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(width, height);
         frame.setResizable(false);
         frame.setVisible(true);
     }
@@ -26,4 +31,6 @@ public abstract class AbstractWindow {
     protected void setConstraints() {
         this.constraints = new GridBagConstraints();
     }
+
+    protected abstract void setWindowSize();
 }

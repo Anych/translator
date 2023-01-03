@@ -15,12 +15,12 @@ public class MainWindowButtons extends WindowGridButtons {
     @Override
     public void createButtons() {
         createParticularButtonOnPane(new GridButtonOptions(
-                new TranslateWordWindow(frame), "Добавить слово", 0, 0));
+                new TranslateWordWindow(), frame, "Добавить слово", 0, 0));
         createParticularButtonOnPane(new GridButtonOptions(
-                new TranslateWordWindow(frame), "Выучить новые слова", 1, 0));
+                new TranslateWordWindow(), frame, "Выучить новые слова", 1, 0));
         createParticularButtonOnPane(new GridButtonOptions(
-                new TranslateWordWindow(frame), "Повторить выученные слова", 0, 1));
+                new TranslateWordWindow(), frame, "Повторить выученные слова", 0, 1));
         createParticularButtonOnPane(new GridButtonOptions(
-                new TranslateWordWindow(frame), "Посмотреть список слов", 1, 1));
+                new TranslateWordWindow(), frame, "Посмотреть список слов", 1, 1));
     }
 }

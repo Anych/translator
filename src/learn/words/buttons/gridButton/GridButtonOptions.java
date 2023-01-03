@@ -2,5 +2,7 @@ package learn.words.buttons.gridButton;
 
 import learn.words.windows.AbstractWindow;
 
-public record GridButtonOptions(AbstractWindow dialog, String buttonName, int gridX, int gridY) {
-}
+import javax.swing.*;
+
+public record GridButtonOptions(AbstractWindow newWindow, JFrame frame,
+                                String buttonName, int gridX, int gridY) {}

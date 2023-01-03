@@ -7,20 +7,22 @@ import javax.swing.*;
 import java.awt.*;
 
 public class GridButton extends Button {
+    GridButtonOptions options;
+    AbstractWindow newWindow;
+    JFrame frame;
     private GridBagConstraints constraints;
     private String buttonName;
     private int gridX;
     private int gridY;
     private JButton button;
-    GridButtonOptions options;
-    AbstractWindow dialog;
 
     public void setButtonOptions(GridButtonOptions options) {
         this.options = options;
     }
 
     public void setButtonFields() {
-        setDialog(options.dialog());
+        setNewWindow(options.newWindow());
+        setFrame(options.frame());
         setButtonName(options.buttonName());
         setGridX(options.gridX());
         setGridY(options.gridY());
@@ -28,6 +30,14 @@ public class GridButton extends Button {
 
     public void setConstraints(GridBagConstraints constraints) {
         this.constraints = constraints;
+    }
+
+    private void setNewWindow(AbstractWindow newWindow) {
+        this.newWindow = newWindow;
+    }
+
+    private void setFrame(JFrame frame) {
+        this.frame = frame;
     }
 
     private void setButtonName(String buttonName) {
@@ -40,10 +50,6 @@ public class GridButton extends Button {
 
     private void setGridY(int gridY) {
         this.gridY = gridY;
-    }
-
-    private void setDialog(AbstractWindow dialog) {
-        this.dialog = dialog;
     }
 
     public JButton getButton() {
@@ -65,8 +71,9 @@ public class GridButton extends Button {
     @Override
     public void onClick() {
         button.addActionListener(e -> {
-            dialog.renderWindow();
-            dialog.createElements();
+            frame.dispose();
+            newWindow.renderWindow();
+            newWindow.createElements();
         });
     }
 }

@@ -10,15 +10,13 @@ public class MainWindow extends AbstractWindow {
     }
 
     @Override
-    public void renderWindow() {
-        setFrameOptions(400, 90);
-        setPaneOptions();
-        setConstraints();
-    }
-
-    @Override
     public void createElements() {
         MainWindowButtons buttons = new MainWindowButtons(frame, pane, constraints);
         buttons.createButtons();
+    }
+
+    @Override
+    protected void setWindowSize() {
+        frame.setSize(400, 90);
     }
 }
