@@ -2,7 +2,6 @@ package learn.words.windows;
 
 import learn.words.elements.buttons.windowGridButtons.TranslateWordWindowButtons;
 import learn.words.elements.buttons.windowGridButtons.WindowGridButtons;
-import learn.words.elements.textFields.gridTextField.GridTextField;
 import learn.words.elements.textFields.windowTextFields.TranslateWordWindowTextFields;
 
 import javax.swing.*;
@@ -14,10 +13,6 @@ public class TranslateWordWindow extends AbstractWindow {
     }
 
     @Override
-    protected void setWindowSize() {
-        frame.setSize(750, 90);
-    }
-    @Override
     public void createElements() {
         WindowGridButtons buttons = new TranslateWordWindowButtons(frame, pane, constraints);
         buttons.createButtons();
@@ -26,7 +21,8 @@ public class TranslateWordWindow extends AbstractWindow {
         textFields.createTextFields();
     }
 
-    private GridTextField createTextField() {
-        return new GridTextField();
+    @Override
+    protected void setWindowSize() {
+        frame.setSize(690, 140);
     }
 }

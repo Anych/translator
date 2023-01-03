@@ -15,14 +15,17 @@ public class TranslateWordWindowButtons extends WindowGridButtons {
     @Override
     public void createButtons() {
         createParticularButtonOnPane(new GridButtonOptions(
-                new TranslateWordWindow(), frame, "Перевести слово", 0, 1));
-        createParticularButtonOnPane(new GridButtonOptions(
-                new TranslateWordWindow(), frame, "Следующий перевод", 1, 1));
-        createParticularButtonOnPane(new GridButtonOptions(
-                new TranslateWordWindow(), frame, "Предыдущий перевод", 2, 1));
+                new TranslateWordWindow(), frame, "Перевести слово", 1, 1));
         createParticularButtonOnPane(new GridButtonOptions(
                 new TranslateWordWindow(), frame, "Сохранить перевод", 3, 1));
         createParticularButtonOnPane(new GridButtonOptions(
-                new TranslateWordWindow(), frame, "В главное меню", 4, 1));
+                new TranslateWordWindow(), frame, "Следующий перевод", 1, 2));
+        createParticularButtonOnPane(new GridButtonOptions(
+                new TranslateWordWindow(), frame, "Предыдущий перевод", 3, 2));
+        createParticularButtonOnPane(new GridButtonOptions(
+                new TranslateWordWindow(), frame, "Очистить поле", 1, 3));
+        createParticularButtonOnPane(new GridButtonOptions(
+                new TranslateWordWindow(), frame, "В главное меню", 3, 3));
+
     }
 }

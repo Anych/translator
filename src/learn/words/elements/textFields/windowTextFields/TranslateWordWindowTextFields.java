@@ -18,7 +18,7 @@ public class TranslateWordWindowTextFields {
 
     public void createTextFields() {
         createParticularTextFieldOnPane(new GridTextOptions(0, 0));
-        createParticularTextFieldOnPane(new GridTextOptions(0, 1));
+        createParticularTextFieldOnPane(new GridTextOptions(2, 0));
     }
 
     protected void createParticularTextFieldOnPane(GridTextOptions options) {

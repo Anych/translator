@@ -45,6 +45,7 @@ public class GridTextField implements AbstractTextField, ElementOptions {
         constraints.fill = GridBagConstraints.HORIZONTAL;
         constraints.gridx = gridX;
         constraints.gridy = gridY;
+        constraints.gridwidth = 2;
     }
 
     @Override
