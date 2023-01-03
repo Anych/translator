@@ -4,11 +4,11 @@ import learn.words.windows.AbstractWindow;
 
 import javax.swing.*;
 
-public class OpenNewFrameAction implements AbstractAction {
+public class OpenOtherFrameAction implements AbstractAction {
     JFrame frame;
     AbstractWindow newWindow;
 
-    public OpenNewFrameAction(JFrame frame, AbstractWindow newWindow) {
+    public OpenOtherFrameAction(JFrame frame, AbstractWindow newWindow) {
         this.frame = frame;
         this.newWindow = newWindow;
     }
