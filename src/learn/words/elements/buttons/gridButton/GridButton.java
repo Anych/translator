@@ -1,12 +1,13 @@
-package learn.words.buttons.gridButton;
+package learn.words.elements.buttons.gridButton;
 
-import learn.words.buttons.AbstractButton;
+import learn.words.elements.buttons.AbstractButton;
+import learn.words.elements.ElementOptions;
 import learn.words.windows.AbstractWindow;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class GridButton implements AbstractButton {
+public class GridButton extends AbstractButton implements ElementOptions {
     GridButtonOptions options;
     AbstractWindow newWindow;
     JFrame frame;
@@ -16,11 +17,13 @@ public class GridButton implements AbstractButton {
     private int gridY;
     private JButton button;
 
-    public void setButtonOptions(GridButtonOptions options) {
-        this.options = options;
+    @Override
+    public void setOptions(Record options) {
+        this.options = (GridButtonOptions) options;
     }
 
-    public void setButtonFields() {
+    @Override
+    public void setRecordFields() {
         setNewWindow(options.newWindow());
         setFrame(options.frame());
         setButtonName(options.buttonName());
@@ -28,6 +31,7 @@ public class GridButton implements AbstractButton {
         setGridY(options.gridY());
     }
 
+    @Override
     public void setConstraints(GridBagConstraints constraints) {
         this.constraints = constraints;
     }
@@ -44,11 +48,13 @@ public class GridButton implements AbstractButton {
         this.buttonName = buttonName;
     }
 
-    private void setGridX(int gridX) {
+    @Override
+    public void setGridX(int gridX) {
         this.gridX = gridX;
     }
 
-    private void setGridY(int gridY) {
+    @Override
+    public void setGridY(int gridY) {
         this.gridY = gridY;
     }
 

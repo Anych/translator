@@ -1,7 +1,7 @@
 package learn.words.windows;
 
-import learn.words.buttons.windowGridButtons.MainWindowButtons;
-import learn.words.buttons.windowGridButtons.WindowGridButtons;
+import learn.words.elements.buttons.windowGridButtons.MainWindowButtons;
+import learn.words.elements.buttons.windowGridButtons.WindowGridButtons;
 
 import javax.swing.*;
 

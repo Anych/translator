@@ -1,6 +1,6 @@
-package learn.words.buttons.windowGridButtons;
+package learn.words.elements.buttons.windowGridButtons;
 
-import learn.words.buttons.gridButton.GridButtonOptions;
+import learn.words.elements.buttons.gridButton.GridButtonOptions;
 import learn.words.windows.TranslateWordWindow;
 
 import javax.swing.*;

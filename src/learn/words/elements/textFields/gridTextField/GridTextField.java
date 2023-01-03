@@ -1,27 +1,42 @@
-package learn.words.textFields;
+package learn.words.elements.textFields.gridTextField;
+
+import learn.words.elements.ElementOptions;
+import learn.words.elements.textFields.AbstractTextField;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class TextField implements AbstractTextField {
+public class GridTextField implements AbstractTextField, ElementOptions {
+    GridTextOptions options;
     private GridBagConstraints constraints;
     private int gridX;
     private int gridY;
     private JTextField textField;
 
+    @Override
+    public void setOptions(Record options) {
+        this.options = (GridTextOptions) options;
+    }
+
+    @Override
+    public void setRecordFields() {
+        setGridX(options.gridX());
+        setGridY(options.gridY());
+    }
+
     public void setConstraints(GridBagConstraints constraints) {
         this.constraints = constraints;
     }
 
-    private void setGridX(int gridX) {
+    public void setGridX(int gridX) {
         this.gridX = gridX;
     }
 
-    private void setGridY(int gridY) {
+    public void setGridY(int gridY) {
         this.gridY = gridY;
     }
 
-    private JTextField getTextField() {
+    public JTextField getTextField() {
         return textField;
     }
 
@@ -32,6 +47,7 @@ public class TextField implements AbstractTextField {
         constraints.gridy = gridY;
     }
 
+    @Override
     public void create() {
         textField = new JTextField(30);
     }
