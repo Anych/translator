@@ -1,24 +1,18 @@
 package learn.words.elements.buttons.gridButton;
 
 import learn.words.elements.buttons.AbstractButton;
-import learn.words.elements.ElementOptions;
-import learn.words.elements.buttons.actions.AbstractAction;
-import learn.words.elements.buttons.actions.OpenOtherFrameAction;
+import learn.words.elements.actions.AbstractAction;
+import learn.words.elements.actions.OpenOtherFrameAction;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class OpenNewWindowGridButton extends AbstractButton implements ElementOptions {
+public class OpenNewWindowGridButton extends AbstractButton {
     OpenNewWindowGridButtonOptions options;
-    private GridBagConstraints constraints;
+
     @Override
     public void setOptions(Record options) {
         this.options = (OpenNewWindowGridButtonOptions) options;
-    }
-
-    @Override
-    public void setConstraints(GridBagConstraints constraints) {
-        this.constraints = constraints;
     }
 
     @Override

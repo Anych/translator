@@ -1,4 +1,4 @@
-package learn.words.elements.buttons.actions;
+package learn.words.elements.actions;
 
 public interface AbstractAction {
     void executeCommand();

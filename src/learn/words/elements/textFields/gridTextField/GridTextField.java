@@ -1,28 +1,16 @@
 package learn.words.elements.textFields.gridTextField;
 
-import learn.words.elements.ElementOptions;
 import learn.words.elements.textFields.AbstractTextField;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class GridTextField implements AbstractTextField, ElementOptions {
-    GridTextOptions options;
-    private GridBagConstraints constraints;
-    private JTextField textField;
+public class GridTextField extends AbstractTextField {
+    GridTextFieldOptions options;
 
     @Override
     public void setOptions(Record options) {
-        this.options = (GridTextOptions) options;
-    }
-
-    @Override
-    public void setConstraints(GridBagConstraints constraints) {
-        this.constraints = constraints;
-    }
-
-    public JTextField getTextField() {
-        return textField;
+        this.options = (GridTextFieldOptions) options;
     }
 
     @Override

@@ -1,6 +1,13 @@
 package learn.words.elements.textFields;
 
-public interface AbstractTextField {
-    void render();
-    void create();
+import learn.words.elements.AbstractElement;
+
+import javax.swing.*;
+
+public abstract class AbstractTextField extends AbstractElement {
+    protected JTextField textField;
+
+    public JTextField getTextField() {
+        return textField;
+    }
 }
