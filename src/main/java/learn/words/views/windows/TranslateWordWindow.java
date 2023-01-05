@@ -9,7 +9,7 @@ import javax.swing.*;
 public class TranslateWordWindow extends AbstractWindow {
 
     private static final int WIDTH = 690;
-    private static final int HEIGHT = 140;
+    private static final int HEIGHT = 115;
 
     public TranslateWordWindow() {
         super(WIDTH, HEIGHT);
@@ -18,11 +18,14 @@ public class TranslateWordWindow extends AbstractWindow {
 
     @Override
     public void createElements() {
-        AbstractCreateWindowGridButtons buttons = new CreateTranslateWordWindowButtons(frame, pane, constraints);
-        buttons.createElements();
-
-        CreateTranslateWordWindowTextFields textFields = new CreateTranslateWordWindowTextFields(frame, pane, constraints);
+        CreateTranslateWordWindowTextFields textFields =
+                new CreateTranslateWordWindowTextFields(frame, pane, constraints);
         textFields.createElements();
+
+        AbstractCreateWindowGridButtons buttons =
+                new CreateTranslateWordWindowButtons(frame, pane, constraints,
+                        textFields.inputTextField, textFields.disabledTextField);
+        buttons.createElements();
     }
 
     @Override

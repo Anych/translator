@@ -1,4 +1,4 @@
-package learn.words.controllers.translator;
+package learn.words.models.json;
 
 public class Translations {
     public String text;

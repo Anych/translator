@@ -1,5 +1,7 @@
 package learn.words.views.elements;
 
+import learn.words.views.options.AbstractGridOptions;
+
 import java.awt.*;
 
 public abstract class AbstractElement {
@@ -10,5 +12,5 @@ public abstract class AbstractElement {
     public void setConstraints(GridBagConstraints constraints) {
         this.constraints = constraints;
     }
-    public abstract void setOptions(Record options);
+    public abstract void setOptions(AbstractGridOptions options);
 }

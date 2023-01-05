@@ -1,5 +1,7 @@
 package learn.words.views.elements;
 
+import learn.words.views.options.AbstractGridOptions;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -15,6 +17,6 @@ public abstract class AbstractCreateElements {
     }
 
     public abstract void createElements();
-    protected abstract void createParticularElementOnPane(Record options);
-    protected abstract void setElementOptions(Record options, AbstractElement element);
+    protected abstract JComponent createParticularElementOnPane(AbstractGridOptions options);
+    protected abstract void setElementOptions(AbstractGridOptions options, AbstractElement element);
 }

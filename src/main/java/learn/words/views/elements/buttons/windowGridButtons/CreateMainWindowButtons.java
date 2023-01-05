@@ -1,6 +1,6 @@
 package learn.words.views.elements.buttons.windowGridButtons;
 
-import learn.words.views.elements.buttons.gridButton.OpenNewWindowGridButtonOptions;
+import learn.words.views.options.buttonOptions.OpenNewWindowGridButtonOptions;
 import learn.words.views.windows.TranslateWordWindow;
 
 import javax.swing.*;

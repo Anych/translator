@@ -2,7 +2,8 @@ package learn.words.views.elements.buttons.windowGridButtons;
 
 import learn.words.views.elements.AbstractCreateElements;
 import learn.words.views.elements.AbstractElement;
-import learn.words.views.elements.buttons.gridButton.OpenNewWindowGridButton;
+import learn.words.views.options.AbstractGridOptions;
+import learn.words.views.elements.buttons.gridButton.WindowGridButton;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,8 +14,8 @@ public abstract class AbstractCreateWindowGridButtons extends AbstractCreateElem
     }
 
     @Override
-    protected void createParticularElementOnPane(Record options) {
-        OpenNewWindowGridButton button = new OpenNewWindowGridButton();
+    protected JButton createParticularElementOnPane(AbstractGridOptions options) {
+        WindowGridButton button = new WindowGridButton();
         setElementOptions(options, button);
 
         button.render();
@@ -22,10 +23,12 @@ public abstract class AbstractCreateWindowGridButtons extends AbstractCreateElem
         button.onClick();
 
         pane.add(button.getButton(), constraints);
+
+        return button.getButton();
     }
 
     @Override
-    protected void setElementOptions(Record options, AbstractElement button) {
+    protected void setElementOptions(AbstractGridOptions options, AbstractElement button) {
         button.setConstraints(constraints);
         button.setOptions(options);
     }

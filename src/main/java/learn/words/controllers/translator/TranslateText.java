@@ -1,16 +1,17 @@
-package learn.words.models.json;
+package learn.words.controllers.translator;
 
 import com.google.gson.Gson;
+import learn.words.models.json.TranslateResponse;
 import org.asynchttpclient.AsyncHttpClient;
 import org.asynchttpclient.DefaultAsyncHttpClient;
 
 import java.io.IOException;
 import java.util.concurrent.ExecutionException;
 
-public class TranslateWord {
+public class TranslateText {
     private final String wordToTranslate;
 
-    public TranslateWord(String wordToTranslate) {
+    public TranslateText(String wordToTranslate) {
         this.wordToTranslate = wordToTranslate;
     }
 

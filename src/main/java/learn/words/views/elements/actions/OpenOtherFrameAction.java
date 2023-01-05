@@ -1,16 +1,15 @@
 package learn.words.views.elements.actions;
 
+import learn.words.views.options.buttonOptions.OpenNewWindowGridButtonOptions;
 import learn.words.views.windows.AbstractWindow;
 
 import javax.swing.*;
 
 public class OpenOtherFrameAction implements AbstractAction {
-    JFrame frame;
-    AbstractWindow newWindow;
+    OpenNewWindowGridButtonOptions options;
 
-    public OpenOtherFrameAction(JFrame frame, AbstractWindow newWindow) {
-        this.frame = frame;
-        this.newWindow = newWindow;
+    public OpenOtherFrameAction(OpenNewWindowGridButtonOptions options) {
+        this.options = options;
     }
 
     @Override
@@ -20,11 +19,11 @@ public class OpenOtherFrameAction implements AbstractAction {
     }
 
     private void closeFrame() {
-        frame.dispose();
+        options.getFrame().dispose();
     }
 
     private void openNewWindow() {
-        newWindow.renderWindow();
-        newWindow.createElements();
+        options.getNewFrame().renderWindow();
+        options.getNewFrame().createElements();
     }
 }
