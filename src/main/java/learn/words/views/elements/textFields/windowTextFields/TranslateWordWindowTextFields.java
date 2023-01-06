@@ -1,7 +1,6 @@
 package learn.words.views.elements.textFields.windowTextFields;
 
 import learn.words.views.elements.AbstractElements;
-import learn.words.views.elements.AbstractParticularElement;
 import learn.words.views.options.AbstractGridOptions;
 import learn.words.views.options.textFieldsOptions.GridTextFieldOptions;
 import learn.words.views.elements.textFields.gridTextField.GridTextField;
@@ -33,11 +32,5 @@ public class TranslateWordWindowTextFields extends AbstractElements {
         pane.add(gridTextField.getTextField(), constraints);
 
         return gridTextField.getTextField();
-    }
-
-    @Override
-    protected void setElementOptions(AbstractGridOptions options, AbstractParticularElement gridTextField) {
-        gridTextField.setConstraints(constraints);
-        gridTextField.setOptions(options);
     }
 }

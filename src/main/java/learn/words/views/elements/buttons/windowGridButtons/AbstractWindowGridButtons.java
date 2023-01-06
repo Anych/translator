@@ -1,7 +1,6 @@
 package learn.words.views.elements.buttons.windowGridButtons;
 
 import learn.words.views.elements.AbstractElements;
-import learn.words.views.elements.AbstractParticularElement;
 import learn.words.views.options.AbstractGridOptions;
 import learn.words.views.elements.buttons.gridButton.WindowParticularGridButton;
 
@@ -25,11 +24,5 @@ public abstract class AbstractWindowGridButtons extends AbstractElements {
         pane.add(button.getButton(), constraints);
 
         return button.getButton();
-    }
-
-    @Override
-    protected void setElementOptions(AbstractGridOptions options, AbstractParticularElement button) {
-        button.setConstraints(constraints);
-        button.setOptions(options);
     }
 }

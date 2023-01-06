@@ -18,5 +18,8 @@ public abstract class AbstractElements {
 
     public abstract void createElements();
     protected abstract JComponent createParticularElementOnPane(AbstractGridOptions options);
-    protected abstract void setElementOptions(AbstractGridOptions options, AbstractParticularElement element);
+    protected void setElementOptions(AbstractGridOptions options, AbstractParticularElement element) {
+        element.setConstraints(constraints);
+        element.setOptions(options);
+    }
 }

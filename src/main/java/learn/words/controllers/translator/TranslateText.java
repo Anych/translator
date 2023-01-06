@@ -7,6 +7,8 @@ import org.asynchttpclient.DefaultAsyncHttpClient;
 
 import java.io.IOException;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 public class TranslateText {
     private final String wordToTranslate;
@@ -25,11 +27,14 @@ public class TranslateText {
         try (AsyncHttpClient client = new DefaultAsyncHttpClient()) {
             return getResponseBody(client);
         } catch (IOException | ExecutionException | InterruptedException e) {
-            return "Произошла ошибка, проверьть интернет";
+            return "Ошибка, проверьть интернет";
+        } catch (TimeoutException e) {
+            return "Ошибка, сайт не отвечает";
         }
     }
 
-    private String getResponseBody(AsyncHttpClient client) throws ExecutionException, InterruptedException {
+    private String getResponseBody(AsyncHttpClient client) throws ExecutionException,
+            InterruptedException, TimeoutException {
         String URL = "https://microsoft-translator-text.p.rapidapi.com/" +
                 "translate?to%5B0%5D=ru&api-version=3.0&from=en&profanityAction=NoAction&textType=plain";
         String CONTENT_TYPE = "application/json";
@@ -41,13 +46,16 @@ public class TranslateText {
                 .setHeader("X-RapidAPI-Key", KEY)
                 .setHeader("X-RapidAPI-Host", HOST)
                 .setBody("[{\"Text\": \"" + wordToTranslate + "\"}]")
-                .execute().get().getResponseBody();
+                .execute().get(5, TimeUnit.SECONDS).getResponseBody();
     }
 
     private String getTranslatedWord(String responseBody) {
-        TranslateResponse translateResponse = makeJSONFromString(responseBody);
-
-        return getWordFromObject(translateResponse);
+        if (responseBody.contains("ошибка")) {
+            return responseBody;
+        } else {
+            TranslateResponse translateResponse = makeJSONFromString(responseBody);
+            return getWordFromObject(translateResponse);
+        }
     }
 
     private TranslateResponse makeJSONFromString(String responseBody) {

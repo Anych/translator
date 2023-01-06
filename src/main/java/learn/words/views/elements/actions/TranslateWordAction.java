@@ -3,6 +3,9 @@ package learn.words.views.elements.actions;
 import learn.words.controllers.translator.TranslateText;
 import learn.words.views.options.buttonOptions.TranslateWordButtonOptions;
 
+import javax.swing.*;
+import java.util.concurrent.ExecutionException;
+
 public class TranslateWordAction implements AbstractAction {
     private final TranslateWordButtonOptions options;
 
@@ -13,8 +16,27 @@ public class TranslateWordAction implements AbstractAction {
     @Override
     public void executeCommand() {
         String text = getInputTextFieldValue();
-        String translatedText = translateText(text);
-        setDisabledTextFieldValue(translatedText);
+        tryToTranslateText(text);
+    }
+
+    private void tryToTranslateText(String text) {
+        try {
+            translateWordInNewThread(text);
+        } catch (ExecutionException | InterruptedException e) {
+            setDisabledTextFieldValue("Что то пошло не так, попробуйте снова");
+        }
+    }
+
+    private void translateWordInNewThread(String text) throws ExecutionException, InterruptedException {
+        SwingWorker<Void, Void> worker = new SwingWorker<>() {
+            @Override
+            protected Void doInBackground() {
+                String translatedText = translateText(text);
+                setDisabledTextFieldValue(translatedText);
+                return null;
+            }
+        };
+        worker.execute();
     }
 
     private String getInputTextFieldValue() {
