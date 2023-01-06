@@ -1,22 +1,28 @@
-package learn.words.controllers.actions;
+package learn.words.controllers.actions.translateWordWindow;
 
+import learn.words.controllers.actions.AbstractAction;
 import learn.words.controllers.translator.TranslateText;
-import learn.words.views.options.buttonOptions.TranslateWordButtonOptions;
+import learn.words.views.options.buttonOptions.ChangeBothTextFieldsButtonOptions;
 
 import javax.swing.*;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 public class TranslateWordAction implements AbstractAction {
-    private final TranslateWordButtonOptions options;
-    public TranslateWordAction(TranslateWordButtonOptions options) {
+    private final ChangeBothTextFieldsButtonOptions options;
+    public TranslateWordAction(ChangeBothTextFieldsButtonOptions options) {
         this.options = options;
     }
 
     @Override
     public void executeCommand() {
         String text = getInputTextFieldValue();
-        tryToTranslateText(text);
+        if (text.equals("")) {
+            System.out.println(1);
+            setDisabledTextFieldValue("Введите слово");
+        } else {
+            tryToTranslateText(text);
+        }
     }
 
     private void tryToTranslateText(String text) {
@@ -32,10 +38,14 @@ public class TranslateWordAction implements AbstractAction {
             @Override
             protected Void doInBackground() {
                 List<String> translatedTexts = translateText(text);
-                setMainFrameTranslatedWordList(translatedTexts);
 
-                setDisabledTextFieldValue(translatedTexts.get(0));
-                setTextToTranslate(text);
+                if (translatedTexts.isEmpty()) {
+                    setDisabledTextFieldValue("Перевод не найден");
+                } else {
+                    setMainFrameTranslatedWordList(translatedTexts);
+                    setDisabledTextFieldValue(translatedTexts.get(0));
+                    setTextToTranslate(text);
+                }
                 return null;
             }
         };

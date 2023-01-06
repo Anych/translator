@@ -1,5 +1,6 @@
-package learn.words.controllers.actions;
+package learn.words.controllers.actions.translateWordWindow;
 
+import learn.words.controllers.actions.AbstractAction;
 import learn.words.views.elements.buttons.windowGridButtons.ChangeTranslationButtonOptions;
 
 import javax.swing.*;
@@ -19,7 +20,7 @@ public class ChangeTranslationAction implements AbstractAction {
         int textIndex = getTranslatedTextIndex(translatedText);
 
         if (textIndex == -1) {
-            options.getDisabledTextField().setText("Ошибка");
+            options.getDisabledTextField().setText("Сначала переведите слово");
         } else {
             setDisabledTextFieldValue(textIndex);
         }
@@ -52,7 +53,10 @@ public class ChangeTranslationAction implements AbstractAction {
 
     private int getTranslatedTextIndex(String translatedText) {
         List<String> translatedTexts = options.getWindow().getTranslatedWords();
-        return translatedTexts.indexOf(translatedText);
+        if (translatedTexts != null) {
+            return translatedTexts.indexOf(translatedText);
+        }
+        return -1;
     }
 
     private List<String> getTranslatedWords() {

@@ -1,7 +1,7 @@
 package learn.words.views.elements.buttons.windowGridButtons;
 
 import learn.words.views.options.buttonOptions.OpenNewWindowGridButtonOptions;
-import learn.words.views.options.buttonOptions.TranslateWordButtonOptions;
+import learn.words.views.options.buttonOptions.ChangeBothTextFieldsButtonOptions;
 import learn.words.views.windows.MainWindow;
 import learn.words.views.windows.TranslateWordWindow;
 
@@ -24,10 +24,10 @@ public class TranslateWordWindowButtons extends AbstractWindowGridButtons {
 
     @Override
     public void createElements() {
-        createParticularElementOnPane(new TranslateWordButtonOptions(window,
+        createParticularElementOnPane(new ChangeBothTextFieldsButtonOptions(window,
                 inputTextField, disabledTextField, "Перевести слово", 1, 1));
 
-        createParticularElementOnPane(new TranslateWordButtonOptions(window,
+        createParticularElementOnPane(new ChangeBothTextFieldsButtonOptions(window,
                 inputTextField, disabledTextField, "Сохранить", 3, 1));
 
         createParticularElementOnPane(new ChangeTranslationButtonOptions(window,
@@ -36,8 +36,8 @@ public class TranslateWordWindowButtons extends AbstractWindowGridButtons {
         createParticularElementOnPane(new ChangeTranslationButtonOptions(window,
                 disabledTextField, "Следующий перевод", 3, 2));
 
-        createParticularElementOnPane(new TranslateWordButtonOptions(window,
-                inputTextField, disabledTextField, "Очистить поле", 1, 3));
+        createParticularElementOnPane(new ChangeBothTextFieldsButtonOptions(window,
+                inputTextField, disabledTextField, "Очистить", 1, 3));
 
         createParticularElementOnPane(new OpenNewWindowGridButtonOptions(
                 new MainWindow(), frame, "В главное меню", 3, 3));
