@@ -9,6 +9,7 @@ import java.util.concurrent.ExecutionException;
 
 public class TranslateWordAction implements AbstractAction {
     private final TranslateWordButtonOptions options;
+    private List<String> translatedTexts;
 
     public TranslateWordAction(TranslateWordButtonOptions options) {
         this.options = options;
@@ -18,6 +19,9 @@ public class TranslateWordAction implements AbstractAction {
     public void executeCommand() {
         String text = getInputTextFieldValue();
         tryToTranslateText(text);
+
+        setMainFrameTranslatedWordList(translatedTexts);
+        setDisabledTextFieldValue(translatedTexts.get(0));
     }
 
     private void tryToTranslateText(String text) {
@@ -32,8 +36,7 @@ public class TranslateWordAction implements AbstractAction {
         SwingWorker<Void, Void> worker = new SwingWorker<>() {
             @Override
             protected Void doInBackground() {
-                List<String> translatedTexts = translateText(text);
-                setDisabledTextFieldValue(translatedTexts.get(0));
+                translatedTexts = translateText(text);
                 return null;
             }
         };
@@ -51,5 +54,9 @@ public class TranslateWordAction implements AbstractAction {
 
     private void setDisabledTextFieldValue(String translatedTexts) {
         options.getDisabledTextField().setText(translatedTexts);
+    }
+
+    private void setMainFrameTranslatedWordList(List<String> translatedWordList) {
+        options.getWindow().setTranslatedWords(translatedWordList);
     }
 }

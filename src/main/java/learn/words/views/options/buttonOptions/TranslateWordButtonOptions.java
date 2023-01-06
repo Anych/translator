@@ -1,14 +1,18 @@
 package learn.words.views.options.buttonOptions;
 
+import learn.words.views.windows.TranslateWordWindow;
+
 import javax.swing.*;
 
 public class TranslateWordButtonOptions extends AbstractGridButtonOptions {
     private final JTextField inputTextField;
     private final JTextField disabledTextField;
+    private final TranslateWordWindow window;
 
-    public TranslateWordButtonOptions(JTextField inputTextField, JTextField disabledTextField,
-                                      String buttonName, int gridX, int gridY) {
+    public TranslateWordButtonOptions(TranslateWordWindow window, JTextField inputTextField,
+                                      JTextField disabledTextField, String buttonName, int gridX, int gridY) {
         super(buttonName, gridX, gridY);
+        this.window = window;
         this.inputTextField = inputTextField;
         this.disabledTextField = disabledTextField;
     }
@@ -19,6 +23,10 @@ public class TranslateWordButtonOptions extends AbstractGridButtonOptions {
 
     public JTextField getDisabledTextField() {
         return disabledTextField;
+    }
+
+    public TranslateWordWindow getWindow() {
+        return window;
     }
 }
 

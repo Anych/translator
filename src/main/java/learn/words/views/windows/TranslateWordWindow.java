@@ -5,11 +5,13 @@ import learn.words.views.elements.buttons.windowGridButtons.AbstractWindowGridBu
 import learn.words.views.elements.textFields.windowTextFields.TranslateWordWindowTextFields;
 
 import javax.swing.*;
+import java.util.List;
 
 public class TranslateWordWindow extends AbstractWindow {
 
     private static final int WIDTH = 690;
     private static final int HEIGHT = 115;
+    private List<String> translatedWords;
 
     public TranslateWordWindow() {
         super(WIDTH, HEIGHT);
@@ -23,7 +25,7 @@ public class TranslateWordWindow extends AbstractWindow {
         textFields.createElements();
 
         AbstractWindowGridButtons buttons =
-                new TranslateWordWindowButtons(frame, pane, constraints,
+                new TranslateWordWindowButtons(this, frame, pane, constraints,
                         textFields.inputTextField, textFields.disabledTextField);
         buttons.createElements();
     }
@@ -31,5 +33,13 @@ public class TranslateWordWindow extends AbstractWindow {
     @Override
     protected void setWindowSize() {
         frame.setSize(WIDTH, HEIGHT);
+    }
+
+    public void setTranslatedWords(List<String> translatedWords) {
+        this.translatedWords = translatedWords;
+    }
+
+    public List<String> getTranslatedWords() {
+        return translatedWords;
     }
 }

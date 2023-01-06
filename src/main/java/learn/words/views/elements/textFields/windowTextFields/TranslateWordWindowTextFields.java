@@ -11,6 +11,7 @@ import java.awt.*;
 public class TranslateWordWindowTextFields extends AbstractElements {
     public JTextField inputTextField;
     public JTextField disabledTextField;
+
     public TranslateWordWindowTextFields(JFrame frame, Container pane, GridBagConstraints constraints) {
         super(frame, pane, constraints);
     }
