@@ -22,6 +22,7 @@ public class TranslateWordAction implements AbstractAction {
 
         setMainFrameTranslatedWordList(translatedTexts);
         setDisabledTextFieldValue(translatedTexts.get(0));
+        setTextToTranslate(text);
     }
 
     private void tryToTranslateText(String text) {
@@ -58,5 +59,9 @@ public class TranslateWordAction implements AbstractAction {
 
     private void setMainFrameTranslatedWordList(List<String> translatedWordList) {
         options.getWindow().setTranslatedWords(translatedWordList);
+    }
+
+    private void setTextToTranslate(String text) {
+        options.getWindow().setTextToTranslate(text);
     }
 }

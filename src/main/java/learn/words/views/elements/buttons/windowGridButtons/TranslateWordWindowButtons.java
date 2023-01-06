@@ -12,6 +12,7 @@ public class TranslateWordWindowButtons extends AbstractWindowGridButtons {
     private final JTextField inputTextField;
     private final JTextField disabledTextField;
     private final TranslateWordWindow window;
+
     public TranslateWordWindowButtons(TranslateWordWindow window, JFrame frame, Container pane,
                                       GridBagConstraints constraints,
                                       JTextField inputTextField, JTextField disabledTextField) {
@@ -27,12 +28,18 @@ public class TranslateWordWindowButtons extends AbstractWindowGridButtons {
                 inputTextField, disabledTextField, "Перевести слово", 1, 1));
 
         createParticularElementOnPane(new TranslateWordButtonOptions(window,
-                inputTextField, disabledTextField, "Сохранить перевод", 3, 1));
+                inputTextField, disabledTextField, "Сохранить", 3, 1));
 
         createParticularElementOnPane(new TranslateWordButtonOptions(window,
-                inputTextField, disabledTextField, "Очистить поле", 1, 2));
+                inputTextField, disabledTextField, "Предыдущий перевод", 1, 2));
+
+        createParticularElementOnPane(new TranslateWordButtonOptions(window,
+                inputTextField, disabledTextField, "Следующий перевод", 3, 2));
+
+        createParticularElementOnPane(new TranslateWordButtonOptions(window,
+                inputTextField, disabledTextField, "Очистить поле", 1, 3));
 
         createParticularElementOnPane(new OpenNewWindowGridButtonOptions(
-                new MainWindow(), frame, "В главное меню", 3, 2));
+                new MainWindow(), frame, "В главное меню", 3, 3));
     }
 }
