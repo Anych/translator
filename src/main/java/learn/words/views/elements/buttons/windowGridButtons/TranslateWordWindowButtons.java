@@ -30,11 +30,11 @@ public class TranslateWordWindowButtons extends AbstractWindowGridButtons {
         createParticularElementOnPane(new TranslateWordButtonOptions(window,
                 inputTextField, disabledTextField, "Сохранить", 3, 1));
 
-        createParticularElementOnPane(new TranslateWordButtonOptions(window,
-                inputTextField, disabledTextField, "Предыдущий перевод", 1, 2));
+        createParticularElementOnPane(new ChangeTranslationButtonOptions(window,
+                disabledTextField, "Предыдущий перевод", 1, 2));
 
-        createParticularElementOnPane(new TranslateWordButtonOptions(window,
-                inputTextField, disabledTextField, "Следующий перевод", 3, 2));
+        createParticularElementOnPane(new ChangeTranslationButtonOptions(window,
+                disabledTextField, "Следующий перевод", 3, 2));
 
         createParticularElementOnPane(new TranslateWordButtonOptions(window,
                 inputTextField, disabledTextField, "Очистить поле", 1, 3));

@@ -1,6 +1,7 @@
 package learn.words.controllers.actions;
 
 
+import learn.words.views.elements.buttons.windowGridButtons.ChangeTranslationButtonOptions;
 import learn.words.views.options.AbstractGridOptions;
 import learn.words.views.options.buttonOptions.OpenNewWindowGridButtonOptions;
 import learn.words.views.options.buttonOptions.TranslateWordButtonOptions;
@@ -18,6 +19,8 @@ public class CorrectAction implements AbstractAction {
 
         if ("TranslateWordButtonOptions".equals(optionsName)) {
             action = new TranslateWordAction((TranslateWordButtonOptions) options);
+        } else if ("ChangeTranslationButtonOptions".equals(optionsName)) {
+            action = new ChangeTranslationAction((ChangeTranslationButtonOptions) options);
         } else {
             action = new NewFrameAction((OpenNewWindowGridButtonOptions) options);
         }
