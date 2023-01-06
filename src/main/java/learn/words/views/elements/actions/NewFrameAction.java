@@ -1,14 +1,11 @@
 package learn.words.views.elements.actions;
 
 import learn.words.views.options.buttonOptions.OpenNewWindowGridButtonOptions;
-import learn.words.views.windows.AbstractWindow;
 
-import javax.swing.*;
-
-public class OpenOtherFrameAction implements AbstractAction {
+public class NewFrameAction implements AbstractAction {
     OpenNewWindowGridButtonOptions options;
 
-    public OpenOtherFrameAction(OpenNewWindowGridButtonOptions options) {
+    public NewFrameAction(OpenNewWindowGridButtonOptions options) {
         this.options = options;
     }
 

@@ -19,7 +19,7 @@ public class CorrectAction implements AbstractAction {
         if ("TranslateWordButtonOptions".equals(optionsName)) {
             action = new TranslateWordAction((TranslateWordButtonOptions) options);
         } else {
-            action = new OpenOtherFrameAction((OpenNewWindowGridButtonOptions) options);
+            action = new NewFrameAction((OpenNewWindowGridButtonOptions) options);
         }
     }
 

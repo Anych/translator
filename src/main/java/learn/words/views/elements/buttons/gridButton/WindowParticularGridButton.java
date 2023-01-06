@@ -8,7 +8,7 @@ import learn.words.views.options.buttonOptions.AbstractGridButtonOptions;
 import javax.swing.*;
 import java.awt.*;
 
-public class WindowGridButton extends AbstractButton {
+public class WindowParticularGridButton extends AbstractButton {
     AbstractGridButtonOptions options;
 
     @Override

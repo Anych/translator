@@ -1,7 +1,7 @@
 package learn.words.views.windows;
 
-import learn.words.views.elements.buttons.windowGridButtons.CreateMainWindowButtons;
-import learn.words.views.elements.buttons.windowGridButtons.AbstractCreateWindowGridButtons;
+import learn.words.views.elements.buttons.windowGridButtons.MainWindowButtons;
+import learn.words.views.elements.buttons.windowGridButtons.AbstractWindowGridButtons;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,7 +17,7 @@ public class MainWindow extends AbstractWindow {
 
     @Override
     public void createElements() {
-        AbstractCreateWindowGridButtons buttons = new CreateMainWindowButtons(frame, pane, constraints);
+        AbstractWindowGridButtons buttons = new MainWindowButtons(frame, pane, constraints);
         buttons.createElements();
     }
 

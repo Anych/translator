@@ -7,11 +7,11 @@ import learn.words.views.windows.MainWindow;
 import javax.swing.*;
 import java.awt.*;
 
-public class CreateTranslateWordWindowButtons extends AbstractCreateWindowGridButtons {
+public class TranslateWordWindowButtons extends AbstractWindowGridButtons {
     private final JTextField inputTextField;
     private final JTextField disabledTextField;
-    public CreateTranslateWordWindowButtons(JFrame frame, Container pane, GridBagConstraints constraints,
-                                            JTextField inputTextField, JTextField disabledTextField) {
+    public TranslateWordWindowButtons(JFrame frame, Container pane, GridBagConstraints constraints,
+                                      JTextField inputTextField, JTextField disabledTextField) {
         super(frame, pane, constraints);
         this.inputTextField = inputTextField;
         this.disabledTextField = disabledTextField;
