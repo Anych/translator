@@ -5,7 +5,11 @@ import learn.words.models.json.TranslateResponse;
 import org.asynchttpclient.AsyncHttpClient;
 import org.asynchttpclient.DefaultAsyncHttpClient;
 
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.util.List;
+import java.util.Properties;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
@@ -19,7 +23,7 @@ public class TranslateText {
 
     public String doTranslate() {
         String responseBody = request();
-
+        System.out.println(responseBody);
         return getTranslatedWord(responseBody);
     }
 
@@ -35,18 +39,30 @@ public class TranslateText {
 
     private String getResponseBody(AsyncHttpClient client) throws ExecutionException,
             InterruptedException, TimeoutException {
-        String URL = "https://microsoft-translator-text.p.rapidapi.com/" +
-                "translate?to%5B0%5D=ru&api-version=3.0&from=en&profanityAction=NoAction&textType=plain";
-        String CONTENT_TYPE = "application/json";
-        String KEY = "d7231781d5msh98b9f24fe1afceep16c0e2jsnca25859a500b";
-        String HOST = "microsoft-translator-text.p.rapidapi.com";
+        Properties prop = getAPIProperties();
 
-        return client.prepare("POST", URL)
-                .setHeader("content-type", CONTENT_TYPE)
-                .setHeader("X-RapidAPI-Key", KEY)
-                .setHeader("X-RapidAPI-Host", HOST)
-                .setBody("[{\"Text\": \"" + wordToTranslate + "\"}]")
-                .execute().get(5, TimeUnit.SECONDS).getResponseBody();
+        if (!prop.isEmpty()) {
+            return client.prepare("POST", prop.getProperty("URL"))
+                    .setHeader("content-type", prop.getProperty("CONTENT_TYPE"))
+                    .setHeader("X-RapidAPI-Key", prop.getProperty("KEY"))
+                    .setHeader("X-RapidAPI-Host", prop.getProperty("HOST"))
+                    .setBody("[{\"Text\": \"" + wordToTranslate + "\"}]")
+                    .execute().get(5, TimeUnit.SECONDS).getResponseBody();
+        } else {
+            return "Ошибка с файлом конфигурации";
+        }
+    }
+
+    private Properties getAPIProperties() {
+        Properties prop = new Properties();
+        try (InputStream input = new FileInputStream("src/main/resources/api_config.properties")) {
+            prop.load(input);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return prop;
     }
 
     private String getTranslatedWord(String responseBody) {
@@ -54,7 +70,7 @@ public class TranslateText {
             return responseBody;
         } else {
             TranslateResponse translateResponse = makeJSONFromString(responseBody);
-            return getWordFromObject(translateResponse);
+            return getWordsFromObject(translateResponse);
         }
     }
 
@@ -65,7 +81,10 @@ public class TranslateText {
         return g.fromJson(removedBracketsResponse, TranslateResponse.class);
     }
 
-    private String getWordFromObject(TranslateResponse word) {
-        return word.translations.get(0).text;
+    private String getWordsFromObject(TranslateResponse word) {
+
+        return ":";
     }
+
+    private List<String> addWordsTo
 }
