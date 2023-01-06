@@ -1,6 +1,6 @@
 package learn.words.views.elements.buttons.gridButton;
 
-import learn.words.views.elements.actions.CorrectAction;
+import learn.words.controllers.actions.CorrectAction;
 import learn.words.views.elements.buttons.AbstractButton;
 import learn.words.views.options.AbstractGridOptions;
 import learn.words.views.options.buttonOptions.AbstractGridButtonOptions;

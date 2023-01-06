@@ -1,9 +1,10 @@
-package learn.words.views.elements.actions;
+package learn.words.controllers.actions;
 
 import learn.words.controllers.translator.TranslateText;
 import learn.words.views.options.buttonOptions.TranslateWordButtonOptions;
 
 import javax.swing.*;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 public class TranslateWordAction implements AbstractAction {
@@ -31,8 +32,8 @@ public class TranslateWordAction implements AbstractAction {
         SwingWorker<Void, Void> worker = new SwingWorker<>() {
             @Override
             protected Void doInBackground() {
-                String translatedText = translateText(text);
-                setDisabledTextFieldValue(translatedText);
+                List<String> translatedTexts = translateText(text);
+                setDisabledTextFieldValue(translatedTexts.get(0));
                 return null;
             }
         };
@@ -43,12 +44,12 @@ public class TranslateWordAction implements AbstractAction {
         return options.getInputTextField().getText();
     }
 
-    private String translateText(String text) {
+    private List<String> translateText(String text) {
         TranslateText translatedText = new TranslateText(text);
         return translatedText.doTranslate();
     }
 
-    private void setDisabledTextFieldValue(String translatedText) {
-        options.getDisabledTextField().setText(translatedText);
+    private void setDisabledTextFieldValue(String translatedTexts) {
+        options.getDisabledTextField().setText(translatedTexts);
     }
 }

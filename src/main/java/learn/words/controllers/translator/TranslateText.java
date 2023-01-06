@@ -8,6 +8,8 @@ import org.asynchttpclient.DefaultAsyncHttpClient;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Properties;
 import java.util.concurrent.ExecutionException;
@@ -21,9 +23,9 @@ public class TranslateText {
         this.wordToTranslate = wordToTranslate;
     }
 
-    public String doTranslate() {
+    public List<String> doTranslate() {
         String responseBody = request();
-        System.out.println(responseBody);
+
         return getTranslatedWord(responseBody);
     }
 
@@ -65,9 +67,9 @@ public class TranslateText {
         return prop;
     }
 
-    private String getTranslatedWord(String responseBody) {
+    private List<String> getTranslatedWord(String responseBody) {
         if (responseBody.contains("ошибка")) {
-            return responseBody;
+            return Collections.singletonList(responseBody);
         } else {
             TranslateResponse translateResponse = makeJSONFromString(responseBody);
             return getWordsFromObject(translateResponse);
@@ -81,10 +83,16 @@ public class TranslateText {
         return g.fromJson(removedBracketsResponse, TranslateResponse.class);
     }
 
-    private String getWordsFromObject(TranslateResponse word) {
-
-        return ":";
+    private List<String> getWordsFromObject(TranslateResponse word) {
+        return addWordsToList(word);
     }
 
-    private List<String> addWordsTo
+    private List<String> addWordsToList(TranslateResponse word) {
+        List<String> translatedWords = new ArrayList<>();
+        for (int i = 0; i < word.translations.size(); i++) {
+            translatedWords.add(word.translations.get(i).normalizedTarget);
+        }
+
+        return translatedWords;
+    }
 }
