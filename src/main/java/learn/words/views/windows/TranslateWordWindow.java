@@ -12,7 +12,7 @@ public class TranslateWordWindow extends AbstractWindow {
     private static final int WIDTH = 690;
     private static final int HEIGHT = 140;
     private List<String> translatedWords;
-    private String textToTranslate;
+    private String wordToTranslate;
 
     public TranslateWordWindow() {
         super(WIDTH, HEIGHT);
@@ -44,11 +44,11 @@ public class TranslateWordWindow extends AbstractWindow {
         return translatedWords;
     }
 
-    public void setTextToTranslate(String textToTranslate) {
-        this.textToTranslate = textToTranslate;
+    public void setWordToTranslate(String wordToTranslate) {
+        this.wordToTranslate = wordToTranslate;
     }
 
-    public String getTextToTranslate() {
-        return textToTranslate;
+    public String getWordToTranslate() {
+        return wordToTranslate;
     }
 }

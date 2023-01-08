@@ -3,12 +3,10 @@ package learn.words.models.tables.dao;
 import learn.words.models.tables.NewWord;
 
 import java.sql.SQLException;
-import java.util.List;
 
-public interface WordDAO {
-    int add(NewWord newWord) throws SQLException;
+public interface ProgressDAO {
+    void add(int id) throws SQLException;
     void delete(int id) throws SQLException;
-    NewWord getWord(int id) throws SQLException;
-    List<NewWord> getWords() throws SQLException;
+    NewWord getProgress(int id) throws SQLException;
     void update(NewWord emp) throws SQLException;
 }

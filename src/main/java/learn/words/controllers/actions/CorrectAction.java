@@ -1,13 +1,11 @@
 package learn.words.controllers.actions;
 
 
-import learn.words.controllers.actions.translateWordWindow.ChangeTranslationAction;
-import learn.words.controllers.actions.translateWordWindow.CleanWindowAction;
-import learn.words.controllers.actions.translateWordWindow.TranslateWordAction;
+import learn.words.controllers.actions.translateWordWindow.*;
 import learn.words.views.elements.buttons.windowGridButtons.ChangeTranslationButtonOptions;
 import learn.words.views.options.AbstractGridOptions;
 import learn.words.views.options.buttonOptions.OpenNewWindowGridButtonOptions;
-import learn.words.views.options.buttonOptions.ChangeBothTextFieldsButtonOptions;
+import learn.words.views.options.buttonOptions.UseBothTextFieldsButtonOptions;
 
 public class CorrectAction implements AbstractAction {
     private AbstractGridOptions options;
@@ -20,11 +18,13 @@ public class CorrectAction implements AbstractAction {
     public void chooseCorrectAction() {
         String optionsName = getOptionsName();
 
-        if ("ChangeBothTextFieldsButtonOptions".equals(optionsName)) {
-            if (((ChangeBothTextFieldsButtonOptions) options).getButtonName().equals("Очистить")) {
-                action = new CleanWindowAction((ChangeBothTextFieldsButtonOptions) options);
+        if ("UseBothTextFieldsButtonOptions".equals(optionsName)) {
+            if (((UseBothTextFieldsButtonOptions) options).getButtonName().equals("Очистить")) {
+                action = new CleanWindowAction((UseBothTextFieldsButtonOptions) options);
+            } else if (((UseBothTextFieldsButtonOptions) options).getButtonName().equals("Сохранить")) {
+                action = new SaveWordAction((UseBothTextFieldsButtonOptions) options);
             } else {
-                action = new TranslateWordAction((ChangeBothTextFieldsButtonOptions) options);
+                action = new TranslateWordAction((UseBothTextFieldsButtonOptions) options);
             }
 
         } else if ("ChangeTranslationButtonOptions".equals(optionsName)) {

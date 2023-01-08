@@ -5,23 +5,23 @@ import learn.words.models.tables.NewWord;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.List;
 
-public class WordDAOImpl implements WordDAO {
+public class ProgressDAOImpl implements ProgressDAO {
     Connection connection;
 
-    public WordDAOImpl(Connection connection) {
+    public ProgressDAOImpl(Connection connection) {
         this.connection = connection;
     }
 
     @Override
-    public int add(NewWord newWord) {
-        String query = "INSERT INTO word(english, russian) VALUES (?, ?)";
-        try (PreparedStatement ps = connection.prepareStatement(query)) {
-            ps.setString(1, newWord.getEnglish_word());
-            ps.setString(2, newWord.getRussian_word());
+    public void add(int id) {
+        String query = "INSERT INTO progress(from_russian, from_english, word_id) VALUES (?, ?, ?)";
 
-            return ps.executeUpdate();
+        try (PreparedStatement ps = connection.prepareStatement(query)) {
+            ps.setBoolean(1, false);
+            ps.setBoolean(2, false);
+            ps.setInt(3, id);
+            ps.executeUpdate();
         } catch (SQLException e) {
             try {
                 connection.rollback();
@@ -29,7 +29,6 @@ public class WordDAOImpl implements WordDAO {
                 throw new RuntimeException(ex);
             }
         }
-        return 0;
     }
 
     @Override
@@ -38,12 +37,7 @@ public class WordDAOImpl implements WordDAO {
     }
 
     @Override
-    public NewWord getWord(int id) throws SQLException {
-        return null;
-    }
-
-    @Override
-    public List<NewWord> getWords() throws SQLException {
+    public NewWord getProgress(int id) throws SQLException {
         return null;
     }
 

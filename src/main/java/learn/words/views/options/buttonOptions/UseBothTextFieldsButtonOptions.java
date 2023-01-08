@@ -4,13 +4,13 @@ import learn.words.views.windows.TranslateWordWindow;
 
 import javax.swing.*;
 
-public class ChangeBothTextFieldsButtonOptions extends AbstractGridButtonOptions {
+public class UseBothTextFieldsButtonOptions extends AbstractGridButtonOptions {
     private final JTextField inputTextField;
     private final JTextField disabledTextField;
     private final TranslateWordWindow window;
 
-    public ChangeBothTextFieldsButtonOptions(TranslateWordWindow window, JTextField inputTextField,
-                                             JTextField disabledTextField, String buttonName, int gridX, int gridY) {
+    public UseBothTextFieldsButtonOptions(TranslateWordWindow window, JTextField inputTextField,
+                                          JTextField disabledTextField, String buttonName, int gridX, int gridY) {
         super(buttonName, gridX, gridY);
         this.window = window;
         this.inputTextField = inputTextField;

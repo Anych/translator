@@ -15,10 +15,10 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
-public class TranslateText {
+public class TranslateWord {
     private final String wordToTranslate;
 
-    public TranslateText(String wordToTranslate) {
+    public TranslateWord(String wordToTranslate) {
         this.wordToTranslate = wordToTranslate;
     }
 

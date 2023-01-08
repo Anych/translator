@@ -16,13 +16,13 @@ public class ChangeTranslationAction implements AbstractAction {
 
     @Override
     public void executeCommand() {
-        String translatedText = getCurrentTranslation();
-        int textIndex = getTranslatedTextIndex(translatedText);
+        String translatedWord = getCurrentTranslation();
+        int wordIndex = getTranslatedFieldIndex(translatedWord);
 
-        if (textIndex == -1) {
+        if (wordIndex == -1) {
             options.getDisabledTextField().setText("Сначала переведите слово");
         } else {
-            setDisabledTextFieldValue(textIndex);
+            setDisabledTextFieldValue(wordIndex);
         }
     }
 
@@ -51,7 +51,7 @@ public class ChangeTranslationAction implements AbstractAction {
         return options.getDisabledTextField().getText();
     }
 
-    private int getTranslatedTextIndex(String translatedText) {
+    private int getTranslatedFieldIndex(String translatedText) {
         List<String> translatedTexts = options.getWindow().getTranslatedWords();
         if (translatedTexts != null) {
             return translatedTexts.indexOf(translatedText);

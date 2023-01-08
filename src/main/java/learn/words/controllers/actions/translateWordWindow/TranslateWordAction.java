@@ -1,31 +1,31 @@
 package learn.words.controllers.actions.translateWordWindow;
 
 import learn.words.controllers.actions.AbstractAction;
-import learn.words.controllers.translator.TranslateText;
-import learn.words.views.options.buttonOptions.ChangeBothTextFieldsButtonOptions;
+import learn.words.controllers.translator.TranslateWord;
+import learn.words.views.options.buttonOptions.UseBothTextFieldsButtonOptions;
 
 import javax.swing.*;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 public class TranslateWordAction implements AbstractAction {
-    private final ChangeBothTextFieldsButtonOptions options;
-    public TranslateWordAction(ChangeBothTextFieldsButtonOptions options) {
+    private final UseBothTextFieldsButtonOptions options;
+    public TranslateWordAction(UseBothTextFieldsButtonOptions options) {
         this.options = options;
     }
 
     @Override
     public void executeCommand() {
-        String text = getInputTextFieldValue();
-        if (text.equals("")) {
+        String word = getInputTextFieldValue();
+        if (word.equals("")) {
             System.out.println(1);
             setDisabledTextFieldValue("Введите слово");
         } else {
-            tryToTranslateText(text);
+            tryToTranslateWord(word);
         }
     }
 
-    private void tryToTranslateText(String text) {
+    private void tryToTranslateWord(String text) {
         try {
             translateWordInNewThread(text);
         } catch (ExecutionException | InterruptedException e) {
@@ -44,7 +44,7 @@ public class TranslateWordAction implements AbstractAction {
                 } else {
                     setMainFrameTranslatedWordList(translatedTexts);
                     setDisabledTextFieldValue(translatedTexts.get(0));
-                    setTextToTranslate(text);
+                    setWordToTranslate(text);
                 }
                 return null;
             }
@@ -57,7 +57,7 @@ public class TranslateWordAction implements AbstractAction {
     }
 
     private List<String> translateText(String text) {
-        TranslateText translatedText = new TranslateText(text);
+        TranslateWord translatedText = new TranslateWord(text);
         return translatedText.doTranslate();
     }
 
@@ -69,7 +69,7 @@ public class TranslateWordAction implements AbstractAction {
         options.getWindow().setTranslatedWords(translatedWordList);
     }
 
-    private void setTextToTranslate(String text) {
-        options.getWindow().setTextToTranslate(text);
+    private void setWordToTranslate(String text) {
+        options.getWindow().setWordToTranslate(text);
     }
 }
