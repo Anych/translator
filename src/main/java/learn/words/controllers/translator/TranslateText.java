@@ -1,13 +1,12 @@
 package learn.words.controllers.translator;
 
 import com.google.gson.Gson;
+import learn.words.controllers.PropertiesFile;
 import learn.words.models.json.TranslateResponse;
 import org.asynchttpclient.AsyncHttpClient;
 import org.asynchttpclient.DefaultAsyncHttpClient;
 
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -41,7 +40,7 @@ public class TranslateText {
 
     private String getResponseBody(AsyncHttpClient client) throws ExecutionException,
             InterruptedException, TimeoutException {
-        Properties prop = getAPIProperties();
+        Properties prop = PropertiesFile.getProperties("src/main/resources/api_config.properties");
 
         if (!prop.isEmpty()) {
             return client.prepare("POST", prop.getProperty("URL"))
@@ -53,18 +52,6 @@ public class TranslateText {
         } else {
             return "Ошибка с файлом конфигурации";
         }
-    }
-
-    private Properties getAPIProperties() {
-        Properties prop = new Properties();
-        try (InputStream input = new FileInputStream("src/main/resources/api_config.properties")) {
-            prop.load(input);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return prop;
     }
 
     private List<String> getTranslatedWord(String responseBody) {
