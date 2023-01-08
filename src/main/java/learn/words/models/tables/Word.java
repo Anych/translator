@@ -1,6 +1,6 @@
 package learn.words.models.tables;
 
-public class Words {
+public class Word {
     int id;
     private String english_word;
     private String russian_word;

@@ -2,45 +2,45 @@ package learn.words.models.tables;
 
 public class Progress {
     private int id;
-    private boolean from_russian;
-    private boolean from_english;
-    private int word_id;
+    private boolean fromRussian;
+    private boolean fromEnglish;
+    private int wordId;
 
     public int getId() {
         return id;
     }
 
-    public boolean isFrom_russian() {
-        return from_russian;
+    public boolean isFromRussian() {
+        return fromRussian;
     }
 
-    public void setFrom_russian(boolean from_russian) {
-        this.from_russian = from_russian;
+    public void setFromRussian(boolean fromRussian) {
+        this.fromRussian = fromRussian;
     }
 
-    public boolean isFrom_english() {
-        return from_english;
+    public boolean isFromEnglish() {
+        return fromEnglish;
     }
 
-    public void setFrom_english(boolean from_english) {
-        this.from_english = from_english;
+    public void setFromEnglish(boolean fromEnglish) {
+        this.fromEnglish = fromEnglish;
     }
 
-    public int getWord_id() {
-        return word_id;
+    public int getWordId() {
+        return wordId;
     }
 
-    public void setWord_id(int word_id) {
-        this.word_id = word_id;
+    public void setWordId(int wordId) {
+        this.wordId = wordId;
     }
 
     @Override
     public String toString() {
         return "Progress{" +
                 "id=" + id +
-                ", from_russian=" + from_russian +
-                ", from_english=" + from_english +
-                ", word_id=" + word_id +
+                ", from_russian=" + fromRussian +
+                ", from_english=" + fromEnglish +
+                ", word_id=" + wordId +
                 '}';
     }
 }
