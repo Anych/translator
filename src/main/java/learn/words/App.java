@@ -1,7 +1,7 @@
 package learn.words;
 
-import learn.words.views.windows.AbstractWindow;
-import learn.words.views.windows.MainWindow;
+import learn.words.view.window.AbstractWindow;
+import learn.words.view.window.MainWindow;
 
 public class App {
 
