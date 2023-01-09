@@ -3,9 +3,9 @@ package learn.words.controller.action.translate_word_window;
 import learn.words.controller.DatabaseConnection;
 import learn.words.controller.action.AbstractAction;
 import learn.words.model.entity.Word;
-import learn.words.model.entity.dao.ProgressDAOImpl;
 import learn.words.model.entity.dao.WordDAOImpl;
 import learn.words.view.option.button_option.UseBothTextFieldsButtonOptions;
+import org.postgresql.util.PSQLException;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -31,21 +31,15 @@ public class SaveWordAction implements AbstractAction {
     }
 
     private void doOperationsInDB() {
-        Connection connection = DatabaseConnection.connect();
         try {
-            connection.setAutoCommit(false);
             Word word = createNewWordObject();
-            int wordId = createNewWordInDB(word, connection);
-
-            createWordProgress(wordId, connection);
+            createNewWordInDB(word);
             setDisabledTextField("Сохранено");
-            connection.commit();
 
+        } catch (PSQLException e) {
+            setDisabledTextField("Слово уже существует");
         } catch (SQLException e) {
-            rollbackTransaction(connection);
             setDisabledTextField("Сохранение не удалось");
-        } finally {
-            DatabaseConnection.disconnect();
         }
     }
 
@@ -57,22 +51,9 @@ public class SaveWordAction implements AbstractAction {
         return word;
     }
 
-    private int createNewWordInDB(Word newWord, Connection connection) throws SQLException {
-        WordDAOImpl wordDAO = new WordDAOImpl(connection);
-        return wordDAO.add(newWord);
-    }
-
-    private void createWordProgress(int id, Connection connection) throws SQLException {
-        ProgressDAOImpl progressDAO = new ProgressDAOImpl(connection);
-        progressDAO.add(id);
-    }
-
-    private void rollbackTransaction(Connection connection) {
-        try {
-            connection.rollback();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+    private void createNewWordInDB(Word newWord) throws SQLException {
+        WordDAOImpl wordDAO = new WordDAOImpl();
+        wordDAO.add(newWord);
     }
 
     private String getInputTextField() {

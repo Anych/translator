@@ -14,7 +14,7 @@ public class DatabaseConnection {
             return connection = DriverManager.getConnection(prop.getProperty("URL"),
                     prop.getProperty("USER"), prop.getProperty("PASSWORD"));
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            return DatabaseConnection.connect();
         }
     }
 

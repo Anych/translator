@@ -18,6 +18,7 @@ public class ProgressDAOImpl implements ProgressDAO {
         String query = "INSERT INTO progress(word_id) VALUES (?)";
         try (PreparedStatement ps = connection.prepareStatement(query)) {
             ps.setInt(1, id);
+
             ps.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
