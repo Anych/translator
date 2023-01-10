@@ -14,7 +14,6 @@ public class RepeatGridTextField extends AbstractTextField {
     public void render() {
         textField = new JTextField(30);
         textField.setBackground(options.getColor());
-        textField.setText();
         textField.setFont(new Font("Serif", Font.BOLD,20));
         textField.setBorder(null);
         textField.setHorizontalAlignment(JTextField.CENTER);
@@ -27,6 +26,7 @@ public class RepeatGridTextField extends AbstractTextField {
         constraints.gridx = options.getGridX();
         constraints.gridy = options.getGridY();
         constraints.gridwidth = 2;
+        setMotionTextField();
     }
 
     @Override
@@ -34,7 +34,12 @@ public class RepeatGridTextField extends AbstractTextField {
         this.options = (RepeatTextFieldOptions) options;
     }
 
-    private void setTexts() {
-
+    public void setMotionTextField() {
+        Runnable runnable = () -> {
+            FrameDragListener frameDragListener = new FrameDragListener(options.getFrame());
+            textField.addMouseListener(frameDragListener);
+            textField.addMouseMotionListener(frameDragListener);
+        };
+        SwingUtilities.invokeLater(runnable);
     }
 }
