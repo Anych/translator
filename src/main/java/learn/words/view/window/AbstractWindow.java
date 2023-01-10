@@ -10,22 +10,23 @@ public abstract class AbstractWindow {
     private final int WIDTH;
     private final int HEIGHT;
 
-    protected AbstractWindow(int width, int height) {
+    public AbstractWindow(int width, int height) {
         this.WIDTH = width;
         this.HEIGHT = height;
     }
 
-    public void renderWindow() {
-        setFrameOptions();
+    public void renderWindow(boolean isResizable) {
+        setFrameOptions(isResizable);
         setPaneOptions();
         setConstraints();
         setWindowSize();
         setWindowLocation();
     }
 
-    protected void setFrameOptions() {
+    protected void setFrameOptions(boolean isResizable) {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setResizable(false);
+        frame.setResizable(isResizable);
+        isUndecorated();
         frame.pack();
         frame.setVisible(true);
     }
@@ -35,12 +36,16 @@ public abstract class AbstractWindow {
         pane.setLayout(new GridBagLayout());
     }
 
+    protected void setWindowSize() {
+        frame.setSize(WIDTH, HEIGHT);
+    }
+
     protected void setConstraints() {
         this.constraints = new GridBagConstraints();
     }
 
     public abstract void createElements();
-    protected abstract void setWindowSize();
+    protected abstract void isUndecorated();
     protected void setWindowLocation() {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int locationX = (screenSize.width - WIDTH) / 2;

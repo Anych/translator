@@ -27,6 +27,11 @@ public class MainWindow extends AbstractWindow {
     }
 
     @Override
+    protected void isUndecorated() {
+        frame.setUndecorated(false);
+    }
+
+    @Override
     protected void setWindowLocation() {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int locationX = (screenSize.width - WIDTH) / 2;

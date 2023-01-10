@@ -8,7 +8,6 @@ import javax.swing.*;
 import java.util.List;
 
 public class TranslateWordWindow extends AbstractWindow {
-
     private static final int WIDTH = 690;
     private static final int HEIGHT = 140;
     private List<String> translatedWords;
@@ -32,8 +31,8 @@ public class TranslateWordWindow extends AbstractWindow {
     }
 
     @Override
-    protected void setWindowSize() {
-        frame.setSize(WIDTH, HEIGHT);
+    protected void isUndecorated() {
+        frame.setUndecorated(false);
     }
 
     public void setTranslatedWords(List<String> translatedWords) {

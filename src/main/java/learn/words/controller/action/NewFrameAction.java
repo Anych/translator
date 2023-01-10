@@ -20,7 +20,7 @@ public class NewFrameAction implements AbstractAction {
     }
 
     private void openNewWindow() {
-        options.getNewFrame().renderWindow();
+        options.getNewFrame().renderWindow(false);
         options.getNewFrame().createElements();
     }
 }

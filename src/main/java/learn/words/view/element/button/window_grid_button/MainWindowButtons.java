@@ -1,6 +1,7 @@
 package learn.words.view.element.button.window_grid_button;
 
 import learn.words.view.option.button_option.OpenNewWindowGridButtonOptions;
+import learn.words.view.window.RepeatWordWindow;
 import learn.words.view.window.TranslateWordWindow;
 
 import javax.swing.*;
@@ -17,9 +18,9 @@ public class MainWindowButtons extends AbstractWindowGridButtons {
         createParticularElementOnPane(new OpenNewWindowGridButtonOptions(
                 new TranslateWordWindow(), frame, "Добавить слово", 0, 0));
         createParticularElementOnPane(new OpenNewWindowGridButtonOptions(
-                new TranslateWordWindow(), frame, "Выучить новые слова", 1, 0));
+                new RepeatWordWindow(), frame, "Выучить новые слова", 1, 0));
         createParticularElementOnPane(new OpenNewWindowGridButtonOptions(
-                new TranslateWordWindow(), frame, "Повторить выученные слова", 0, 1));
+                new RepeatWordWindow(), frame, "Повторить выученные слова", 0, 1));
         createParticularElementOnPane(new OpenNewWindowGridButtonOptions(
                 new TranslateWordWindow(), frame, "Посмотреть список слов", 1, 1));
     }

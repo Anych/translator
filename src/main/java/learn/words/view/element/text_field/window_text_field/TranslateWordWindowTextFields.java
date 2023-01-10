@@ -19,7 +19,7 @@ public class TranslateWordWindowTextFields extends AbstractElements {
     @Override
     public void createElements() {
         inputTextField = createParticularElementOnPane(new GridTextFieldOptions(0, 0, true));
-        disabledTextField = createParticularElementOnPane(new GridTextFieldOptions(2, 0, false));
+        disabledTextField = createParticularElementOnPane(new GridTextFieldOptions(3, 0, false));
     }
 
     @Override
