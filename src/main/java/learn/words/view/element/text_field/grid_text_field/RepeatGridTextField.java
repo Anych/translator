@@ -13,7 +13,12 @@ public class RepeatGridTextField extends AbstractTextField {
     @Override
     public void render() {
         textField = new JTextField(30);
+        textField.setBackground(options.getColor());
+        textField.setText();
+        textField.setFont(new Font("Serif", Font.BOLD,20));
+        textField.setBorder(null);
         textField.setHorizontalAlignment(JTextField.CENTER);
+        textField.setEditable(false);
     }
 
     @Override
@@ -27,5 +32,9 @@ public class RepeatGridTextField extends AbstractTextField {
     @Override
     public void setOptions(AbstractGridOptions options) {
         this.options = (RepeatTextFieldOptions) options;
+    }
+
+    private void setTexts() {
+
     }
 }

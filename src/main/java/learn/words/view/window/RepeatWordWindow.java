@@ -6,8 +6,8 @@ import learn.words.view.element.text_field.window_text_field.TranslateWordWindow
 import javax.swing.*;
 
 public class RepeatWordWindow extends AbstractWindow {
-    private static final int WIDTH = 690;
-    private static final int HEIGHT = 140;
+    private static final int WIDTH = 450;
+    private static final int HEIGHT = 54;
     public JTextField learningWord;
     public JTextField translateOfLearningWord;
 

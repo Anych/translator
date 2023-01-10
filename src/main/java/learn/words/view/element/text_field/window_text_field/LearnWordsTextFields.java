@@ -20,8 +20,8 @@ public class LearnWordsTextFields extends AbstractElements {
 
     @Override
     public void createElements() {
-        learningWord = createParticularElementOnPane(new RepeatTextFieldOptions(0, 0));
-        translateOfLearningWord = createParticularElementOnPane(new RepeatTextFieldOptions(0, 1));
+        learningWord = createParticularElementOnPane(new RepeatTextFieldOptions(0, 0, frame, Color.YELLOW));
+        translateOfLearningWord = createParticularElementOnPane(new RepeatTextFieldOptions(0, 1, frame, Color.WHITE));
     }
 
     @Override
