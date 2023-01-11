@@ -1,6 +1,6 @@
 package learn.words.view.window;
 
-import learn.words.view.element.text_field.window_text_field.LearnWordsTextFields;
+import learn.words.view.component.windowtextfields.LearnWordsTextFields;
 
 import javax.swing.*;
 

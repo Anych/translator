@@ -1,4 +1,4 @@
-package learn.words.view.element.button.window_grid_button;
+package learn.words.view.option;
 
 import learn.words.view.option.button_option.AbstractGridButtonOptions;
 import learn.words.view.window.TranslateWordWindow;

@@ -2,7 +2,7 @@ package learn.words.controller.action;
 
 
 import learn.words.controller.action.translate_word_window.*;
-import learn.words.view.element.button.window_grid_button.ChangeTranslationButtonOptions;
+import learn.words.view.option.ChangeTranslationButtonOptions;
 import learn.words.view.option.AbstractGridOptions;
 import learn.words.view.option.button_option.OpenNewWindowGridButtonOptions;
 import learn.words.view.option.button_option.UseBothTextFieldsButtonOptions;

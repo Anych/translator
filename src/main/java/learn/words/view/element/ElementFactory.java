@@ -4,7 +4,7 @@ import learn.words.view.option.AbstractGridOptions;
 
 import java.awt.*;
 
-public abstract class AbstractParticularElement {
+public abstract class ElementFactory {
     protected GridBagConstraints constraints;
     protected abstract void render();
     protected abstract void create();

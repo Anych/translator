@@ -1,10 +1,10 @@
 package learn.words.view.element.button;
 
-import learn.words.view.element.AbstractParticularElement;
+import learn.words.view.element.ElementFactory;
 
 import javax.swing.*;
 
-public abstract class AbstractButton extends AbstractParticularElement {
+public abstract class AbstractButton extends ElementFactory {
     protected JButton button;
 
     public JButton getButton() {

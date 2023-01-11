@@ -1,7 +1,7 @@
 package learn.words.controller.action.translate_word_window;
 
 import learn.words.controller.action.AbstractAction;
-import learn.words.view.element.button.window_grid_button.ChangeTranslationButtonOptions;
+import learn.words.view.option.ChangeTranslationButtonOptions;
 
 import javax.swing.*;
 import java.util.List;

@@ -1,5 +1,7 @@
-package learn.words.view.element.button.window_grid_button;
+package learn.words.view.component.windowbuttons;
 
+import learn.words.view.component.WindowButtonsBuilder;
+import learn.words.view.option.ChangeTranslationButtonOptions;
 import learn.words.view.option.button_option.OpenNewWindowGridButtonOptions;
 import learn.words.view.option.button_option.UseBothTextFieldsButtonOptions;
 import learn.words.view.window.MainWindow;
@@ -8,7 +10,7 @@ import learn.words.view.window.TranslateWordWindow;
 import javax.swing.*;
 import java.awt.*;
 
-public class TranslatorWindowButtons extends WindowGridButtons {
+public class TranslatorWindowButtons extends WindowButtonsBuilder {
     private final JTextField inputTextField;
     private final JTextField disabledTextField;
     private final TranslateWordWindow window;

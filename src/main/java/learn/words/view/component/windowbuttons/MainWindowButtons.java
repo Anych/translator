@@ -1,5 +1,6 @@
-package learn.words.view.element.button.window_grid_button;
+package learn.words.view.component.windowbuttons;
 
+import learn.words.view.component.WindowButtonsBuilder;
 import learn.words.view.option.button_option.OpenNewWindowGridButtonOptions;
 import learn.words.view.window.RepeatWordWindow;
 import learn.words.view.window.TranslateWordWindow;
@@ -7,7 +8,7 @@ import learn.words.view.window.TranslateWordWindow;
 import javax.swing.*;
 import java.awt.*;
 
-public class MainWindowButtons extends WindowGridButtons {
+public class MainWindowButtons extends WindowButtonsBuilder {
 
     public MainWindowButtons(JFrame frame, Container pane, GridBagConstraints constraints) {
         super(frame, pane, constraints);
