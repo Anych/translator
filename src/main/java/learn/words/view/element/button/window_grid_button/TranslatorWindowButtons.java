@@ -8,14 +8,14 @@ import learn.words.view.window.TranslateWordWindow;
 import javax.swing.*;
 import java.awt.*;
 
-public class TranslateWordWindowButtons extends AbstractWindowGridButtons {
+public class TranslatorWindowButtons extends WindowGridButtons {
     private final JTextField inputTextField;
     private final JTextField disabledTextField;
     private final TranslateWordWindow window;
 
-    public TranslateWordWindowButtons(TranslateWordWindow window, JFrame frame, Container pane,
-                                      GridBagConstraints constraints,
-                                      JTextField inputTextField, JTextField disabledTextField) {
+    public TranslatorWindowButtons(TranslateWordWindow window, JFrame frame, Container pane,
+                                   GridBagConstraints constraints,
+                                   JTextField inputTextField, JTextField disabledTextField) {
         super(frame, pane, constraints);
         this.window = window;
         this.inputTextField = inputTextField;

@@ -7,7 +7,7 @@ import learn.words.view.window.TranslateWordWindow;
 import javax.swing.*;
 import java.awt.*;
 
-public class MainWindowButtons extends AbstractWindowGridButtons {
+public class MainWindowButtons extends WindowGridButtons {
 
     public MainWindowButtons(JFrame frame, Container pane, GridBagConstraints constraints) {
         super(frame, pane, constraints);

@@ -1,7 +1,7 @@
 package learn.words.view.window;
 
-import learn.words.view.element.button.window_grid_button.TranslateWordWindowButtons;
-import learn.words.view.element.button.window_grid_button.AbstractWindowGridButtons;
+import learn.words.view.element.button.window_grid_button.TranslatorWindowButtons;
+import learn.words.view.element.button.window_grid_button.WindowGridButtons;
 import learn.words.view.element.text_field.window_text_field.TranslateWordWindowTextFields;
 
 import javax.swing.*;
@@ -24,8 +24,8 @@ public class TranslateWordWindow extends AbstractWindow {
                 new TranslateWordWindowTextFields(frame, pane, constraints);
         textFields.createElements();
 
-        AbstractWindowGridButtons buttons =
-                new TranslateWordWindowButtons(this, frame, pane, constraints,
+        WindowGridButtons buttons =
+                new TranslatorWindowButtons(this, frame, pane, constraints,
                         textFields.inputTextField, textFields.disabledTextField);
         buttons.createElements();
     }

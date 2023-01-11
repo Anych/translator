@@ -1,4 +1,4 @@
-package learn.words.view.element.button.grid_button;
+package learn.words.view.element.button.gridbutton;
 
 import learn.words.controller.action.CorrectAction;
 import learn.words.view.element.button.AbstractButton;
@@ -8,7 +8,7 @@ import learn.words.view.option.button_option.AbstractGridButtonOptions;
 import javax.swing.*;
 import java.awt.*;
 
-public class WindowParticularGridButton extends AbstractButton {
+public class GridButtonFactory extends AbstractButton {
     AbstractGridButtonOptions options;
 
     @Override

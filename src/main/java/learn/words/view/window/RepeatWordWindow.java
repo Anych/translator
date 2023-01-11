@@ -1,15 +1,14 @@
 package learn.words.view.window;
 
 import learn.words.view.element.text_field.window_text_field.LearnWordsTextFields;
-import learn.words.view.element.text_field.window_text_field.TranslateWordWindowTextFields;
 
 import javax.swing.*;
 
 public class RepeatWordWindow extends AbstractWindow {
     private static final int WIDTH = 450;
     private static final int HEIGHT = 54;
-    public JTextField learningWord;
-    public JTextField translateOfLearningWord;
+    public JTextField learningWordField;
+    public JTextField translateOfLearningWordField;
 
     public RepeatWordWindow() {
         super(WIDTH, HEIGHT);
@@ -21,6 +20,12 @@ public class RepeatWordWindow extends AbstractWindow {
         LearnWordsTextFields textFields =
                 new LearnWordsTextFields(frame, pane, constraints);
         textFields.createElements();
+
+        learningWordField = textFields.getLearningWord();
+        translateOfLearningWordField = textFields.getTranslateOfLearningWord();
+
+
+
     }
 
     @Override
