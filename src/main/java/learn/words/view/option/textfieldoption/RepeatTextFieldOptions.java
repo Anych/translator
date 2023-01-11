@@ -1,4 +1,4 @@
-package learn.words.view.option.text_fields_option;
+package learn.words.view.option.textfieldoption;
 
 import learn.words.view.option.AbstractGridOptions;
 

@@ -2,7 +2,7 @@ package learn.words.controller.action.translate_word_window;
 
 import learn.words.controller.action.AbstractAction;
 import learn.words.controller.translator.TranslateWord;
-import learn.words.view.option.button_option.UseBothTextFieldsButtonOptions;
+import learn.words.view.option.buttonoption.UseBothTextFieldsButtonOptions;
 
 import javax.swing.*;
 import java.util.List;

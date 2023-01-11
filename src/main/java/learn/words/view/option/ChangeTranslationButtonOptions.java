@@ -1,6 +1,6 @@
 package learn.words.view.option;
 
-import learn.words.view.option.button_option.AbstractGridButtonOptions;
+import learn.words.view.option.buttonoption.AbstractGridButtonOptions;
 import learn.words.view.window.TranslateWordWindow;
 
 import javax.swing.*;

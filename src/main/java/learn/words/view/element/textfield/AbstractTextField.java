@@ -1,4 +1,4 @@
-package learn.words.view.element.text_field;
+package learn.words.view.element.textfield;
 
 import learn.words.view.element.ElementFactory;
 

@@ -1,6 +1,6 @@
 package learn.words.controller.action;
 
-import learn.words.view.option.button_option.OpenNewWindowGridButtonOptions;
+import learn.words.view.option.buttonoption.OpenNewWindowGridButtonOptions;
 
 public class NewFrameAction implements AbstractAction {
     OpenNewWindowGridButtonOptions options;

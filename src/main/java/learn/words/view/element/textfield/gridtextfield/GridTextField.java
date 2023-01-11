@@ -1,8 +1,8 @@
-package learn.words.view.element.text_field.grid_text_field;
+package learn.words.view.element.textfield.gridtextfield;
 
 import learn.words.view.option.AbstractGridOptions;
-import learn.words.view.element.text_field.AbstractTextField;
-import learn.words.view.option.text_fields_option.GridTextFieldOptions;
+import learn.words.view.element.textfield.AbstractTextField;
+import learn.words.view.option.textfieldoption.GridTextFieldOptions;
 
 import javax.swing.*;
 import java.awt.*;

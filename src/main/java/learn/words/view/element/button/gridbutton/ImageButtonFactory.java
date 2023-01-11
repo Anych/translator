@@ -1,19 +1,25 @@
 package learn.words.view.element.button.gridbutton;
 
 import learn.words.controller.action.CorrectAction;
-import learn.words.view.element.button.AbstractButton;
 import learn.words.view.option.AbstractGridOptions;
-import learn.words.view.option.buttonoption.AbstractGridButtonOptions;
+import learn.words.view.option.buttonoption.ButtonWithImageOptions;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class GridButtonFactory extends AbstractButton {
-    AbstractGridButtonOptions options;
+public class ImageButtonFactory extends GridButtonFactory {
+    private JButton button;
+    protected ButtonWithImageOptions options;
+
+    @Override
+    public void create() {
+        button = new JButton(new ImageIcon("src/main/resources/images/" + options.getImageName() + ".jpg"));
+        button.setPreferredSize(new Dimension(27, 27));
+    }
 
     @Override
     public void setOptions(AbstractGridOptions options) {
-        this.options = (AbstractGridButtonOptions) options;
+        this.options = (ButtonWithImageOptions) options;
     }
 
     @Override
@@ -23,9 +29,8 @@ public class GridButtonFactory extends AbstractButton {
         constraints.gridy = options.getGridY();
     }
 
-    @Override
-    public void create() {
-        button = new JButton(options.getButtonName());
+    public JButton getButton() {
+        return button;
     }
 
     @Override

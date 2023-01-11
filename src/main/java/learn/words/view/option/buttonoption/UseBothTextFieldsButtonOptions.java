@@ -1,4 +1,4 @@
-package learn.words.view.option.button_option;
+package learn.words.view.option.buttonoption;
 
 import learn.words.view.window.TranslateWordWindow;
 

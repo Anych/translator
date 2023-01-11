@@ -1,7 +1,7 @@
 package learn.words.view.component.windowbuttons;
 
 import learn.words.view.component.WindowButtonsBuilder;
-import learn.words.view.option.button_option.OpenNewWindowGridButtonOptions;
+import learn.words.view.option.buttonoption.OpenNewWindowGridButtonOptions;
 import learn.words.view.window.RepeatWordWindow;
 import learn.words.view.window.TranslateWordWindow;
 

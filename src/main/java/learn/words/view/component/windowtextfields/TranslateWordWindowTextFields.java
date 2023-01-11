@@ -2,10 +2,9 @@ package learn.words.view.component.windowtextfields;
 
 import learn.words.view.component.WindowTextFieldsBuilder;
 import learn.words.view.element.ElementFactory;
-import learn.words.view.component.CreateComponentsFactory;
 import learn.words.view.option.AbstractGridOptions;
-import learn.words.view.option.text_fields_option.GridTextFieldOptions;
-import learn.words.view.element.text_field.grid_text_field.GridTextField;
+import learn.words.view.option.textfieldoption.GridTextFieldOptions;
+import learn.words.view.element.textfield.gridtextfield.GridTextField;
 
 import javax.swing.*;
 import java.awt.*;

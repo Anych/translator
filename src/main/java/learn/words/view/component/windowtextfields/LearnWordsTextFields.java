@@ -2,10 +2,9 @@ package learn.words.view.component.windowtextfields;
 
 import learn.words.view.component.WindowTextFieldsBuilder;
 import learn.words.view.element.ElementFactory;
-import learn.words.view.component.CreateComponentsFactory;
-import learn.words.view.element.text_field.grid_text_field.RepeatGridTextField;
+import learn.words.view.element.textfield.gridtextfield.RepeatGridTextField;
 import learn.words.view.option.AbstractGridOptions;
-import learn.words.view.option.text_fields_option.RepeatTextFieldOptions;
+import learn.words.view.option.textfieldoption.RepeatTextFieldOptions;
 
 import javax.swing.*;
 import java.awt.*;
@@ -33,6 +32,7 @@ public class LearnWordsTextFields extends WindowTextFieldsBuilder {
 
         repeatGridTextField.render();
         repeatGridTextField.create();
+        repeatGridTextField.onClick();
 
         pane.add(repeatGridTextField.getTextField(), constraints);
 

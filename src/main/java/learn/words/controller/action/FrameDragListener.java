@@ -1,4 +1,4 @@
-package learn.words.view.element.text_field.grid_text_field;
+package learn.words.controller.action;
 
 import javax.swing.*;
 import java.awt.*;

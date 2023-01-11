@@ -1,13 +1,15 @@
-package learn.words.view.element.text_field.grid_text_field;
+package learn.words.view.element.textfield.gridtextfield;
 
-import learn.words.view.element.text_field.AbstractTextField;
+import learn.words.controller.action.FrameDragListener;
+import learn.words.view.element.ActionOnClick;
+import learn.words.view.element.textfield.AbstractTextField;
 import learn.words.view.option.AbstractGridOptions;
-import learn.words.view.option.text_fields_option.RepeatTextFieldOptions;
+import learn.words.view.option.textfieldoption.RepeatTextFieldOptions;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class RepeatGridTextField extends AbstractTextField {
+public class RepeatGridTextField extends AbstractTextField implements ActionOnClick {
     RepeatTextFieldOptions options;
 
     @Override
@@ -26,7 +28,6 @@ public class RepeatGridTextField extends AbstractTextField {
         constraints.gridx = options.getGridX();
         constraints.gridy = options.getGridY();
         constraints.gridwidth = 2;
-        setMotionTextField();
     }
 
     @Override
@@ -34,7 +35,8 @@ public class RepeatGridTextField extends AbstractTextField {
         this.options = (RepeatTextFieldOptions) options;
     }
 
-    public void setMotionTextField() {
+    @Override
+    public void onClick() {
         Runnable runnable = () -> {
             FrameDragListener frameDragListener = new FrameDragListener(options.getFrame());
             textField.addMouseListener(frameDragListener);

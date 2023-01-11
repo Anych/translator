@@ -1,13 +1,11 @@
 package learn.words.controller.action.translate_word_window;
 
-import learn.words.controller.DatabaseConnection;
 import learn.words.controller.action.AbstractAction;
 import learn.words.model.entity.Word;
 import learn.words.model.entity.dao.WordDAOImpl;
-import learn.words.view.option.button_option.UseBothTextFieldsButtonOptions;
+import learn.words.view.option.buttonoption.UseBothTextFieldsButtonOptions;
 import org.postgresql.util.PSQLException;
 
-import java.sql.Connection;
 import java.sql.SQLException;
 
 public class SaveWordAction implements AbstractAction {

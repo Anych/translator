@@ -2,8 +2,8 @@ package learn.words.view.component.windowbuttons;
 
 import learn.words.view.component.WindowButtonsBuilder;
 import learn.words.view.option.ChangeTranslationButtonOptions;
-import learn.words.view.option.button_option.OpenNewWindowGridButtonOptions;
-import learn.words.view.option.button_option.UseBothTextFieldsButtonOptions;
+import learn.words.view.option.buttonoption.OpenNewWindowGridButtonOptions;
+import learn.words.view.option.buttonoption.UseBothTextFieldsButtonOptions;
 import learn.words.view.window.MainWindow;
 import learn.words.view.window.TranslateWordWindow;
 
