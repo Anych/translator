@@ -1,16 +1,17 @@
-package learn.words.controller.action.translate_word_window;
+package learn.words.controller.action.translatebuttons;
 
 import learn.words.controller.action.ActionFactory;
-import learn.words.view.option.buttonoption.GridButtonOptions;
+import learn.words.view.option.GridButtonOptions;
 
 import java.util.ArrayList;
 
-public class CleanWindowAction implements ActionFactory {
+public class CleanButtonAction implements ActionFactory {
     private final GridButtonOptions options;
 
-    public CleanWindowAction(GridButtonOptions options) {
+    public CleanButtonAction(GridButtonOptions options) {
         this.options = options;
     }
+
     @Override
     public void executeCommand() {
         cleanAllWindowFields();

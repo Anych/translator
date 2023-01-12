@@ -1,6 +1,5 @@
-package learn.words.view.option.buttonoption;
+package learn.words.view.option;
 
-import learn.words.view.option.AbstractGridOptions;
 import learn.words.view.window.AbstractWindow;
 import learn.words.view.window.TranslateWordWindow;
 

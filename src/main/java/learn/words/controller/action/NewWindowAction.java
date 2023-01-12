@@ -1,6 +1,6 @@
 package learn.words.controller.action;
 
-import learn.words.view.option.buttonoption.GridButtonOptions;
+import learn.words.view.option.GridButtonOptions;
 
 public class NewWindowAction implements ActionFactory {
     GridButtonOptions options;

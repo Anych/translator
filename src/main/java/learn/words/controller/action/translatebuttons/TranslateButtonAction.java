@@ -1,16 +1,16 @@
-package learn.words.controller.action.translate_word_window;
+package learn.words.controller.action.translatebuttons;
 
 import learn.words.controller.action.ActionFactory;
 import learn.words.controller.translator.TranslateWord;
-import learn.words.view.option.buttonoption.GridButtonOptions;
+import learn.words.view.option.GridButtonOptions;
 
 import javax.swing.*;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
-public class TranslateWordAction implements ActionFactory {
+public class TranslateButtonAction implements ActionFactory {
     private final GridButtonOptions options;
-    public TranslateWordAction(GridButtonOptions options) {
+    public TranslateButtonAction(GridButtonOptions options) {
         this.options = options;
     }
 
@@ -18,7 +18,6 @@ public class TranslateWordAction implements ActionFactory {
     public void executeCommand() {
         String word = getInputTextFieldValue();
         if (word.equals("")) {
-            System.out.println(1);
             setDisabledTextFieldValue("Введите слово");
         } else {
             tryToTranslateWord(word);

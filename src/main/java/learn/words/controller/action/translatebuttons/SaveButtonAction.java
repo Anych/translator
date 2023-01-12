@@ -1,17 +1,17 @@
-package learn.words.controller.action.translate_word_window;
+package learn.words.controller.action.translatebuttons;
 
 import learn.words.controller.action.ActionFactory;
 import learn.words.model.entity.Word;
 import learn.words.model.entity.dao.WordDAOImpl;
-import learn.words.view.option.buttonoption.GridButtonOptions;
+import learn.words.view.option.GridButtonOptions;
 import org.postgresql.util.PSQLException;
 
 import java.sql.SQLException;
 
-public class SaveWordAction implements ActionFactory {
+public class SaveButtonAction implements ActionFactory {
     private final GridButtonOptions options;
 
-    public SaveWordAction(GridButtonOptions options) {
+    public SaveButtonAction(GridButtonOptions options) {
         this.options = options;
     }
 

@@ -1,7 +1,7 @@
 package learn.words.view.window;
 
-import learn.words.view.component.WindowButtonsBuilder;
-import learn.words.view.component.windowbuttons.MainWindowButtons;
+import learn.words.view.element.button.GridButtonFactory;
+import learn.words.view.option.GridButtonOptions;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,8 +17,14 @@ public class MainWindow extends AbstractWindow {
 
     @Override
     public void createElements() {
-        WindowButtonsBuilder buttons = new MainWindowButtons(frame, pane, constraints);
-        buttons.createElements();
+        new GridButtonFactory(constraints, pane, new GridButtonOptions(
+                new TranslateWordWindow(), frame, "Добавить слово", 0, 0));
+        new GridButtonFactory(constraints, pane, new GridButtonOptions(
+                new LearnWordWindow(), frame, "Выучить новые слова", 1, 0));
+        new GridButtonFactory(constraints, pane, new GridButtonOptions(
+                new LearnWordWindow(), frame, "Повторить выученные слова", 0, 1));
+        new GridButtonFactory(constraints, pane, new GridButtonOptions(
+                new TranslateWordWindow(), frame, "Посмотреть список слов", 1, 1));
     }
 
     @Override

@@ -1,16 +1,15 @@
-package learn.words.controller.action.translate_word_window;
+package learn.words.controller.action.translatebuttons;
 
 import learn.words.controller.action.ActionFactory;
-import learn.words.view.option.buttonoption.GridButtonOptions;
+import learn.words.view.option.GridButtonOptions;
 
 import javax.swing.*;
 import java.util.List;
 
-// TODO: create new abstract class with translate word actions and new class for options
-public class ChangeTranslationAction implements ActionFactory {
+public class ChangeTranslationButtonsAction implements ActionFactory {
     private final GridButtonOptions options;
 
-    public ChangeTranslationAction(GridButtonOptions options) {
+    public ChangeTranslationButtonsAction(GridButtonOptions options) {
         this.options = options;
     }
 

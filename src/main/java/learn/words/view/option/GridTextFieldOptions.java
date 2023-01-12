@@ -1,6 +1,4 @@
-package learn.words.view.option.textfieldoption;
-
-import learn.words.view.option.AbstractGridOptions;
+package learn.words.view.option;
 
 import javax.swing.*;
 import java.awt.*;

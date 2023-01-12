@@ -1,8 +1,8 @@
 package learn.words.controller.action;
 
 
-import learn.words.controller.action.translate_word_window.*;
-import learn.words.view.option.buttonoption.GridButtonOptions;
+import learn.words.controller.action.translatebuttons.*;
+import learn.words.view.option.GridButtonOptions;
 
 public class CorrectAction implements ActionFactory {
     private final GridButtonOptions options;
@@ -16,10 +16,10 @@ public class CorrectAction implements ActionFactory {
         String optionsName = options.getAction();
 
         switch (optionsName) {
-            case "Очистить" -> action = new CleanWindowAction(options);
-            case "Сохранить" -> action = new SaveWordAction(options);
-            case "Перевести слово" -> action = new TranslateWordAction(options);
-            case "ChangeTranslation" -> action = new ChangeTranslationAction(options);
+            case "Очистить" -> action = new CleanButtonAction(options);
+            case "Сохранить" -> action = new SaveButtonAction(options);
+            case "Перевести слово" -> action = new TranslateButtonAction(options);
+            case "ChangeTranslation" -> action = new ChangeTranslationButtonsAction(options);
             default -> action = new NewWindowAction(options);
         }
     }
