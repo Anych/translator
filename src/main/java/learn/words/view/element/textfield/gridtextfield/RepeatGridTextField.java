@@ -4,13 +4,13 @@ import learn.words.controller.action.FrameDragListener;
 import learn.words.view.element.ActionOnClick;
 import learn.words.view.element.textfield.AbstractTextField;
 import learn.words.view.option.AbstractGridOptions;
-import learn.words.view.option.textfieldoption.RepeatTextFieldOptions;
+import learn.words.view.option.textfieldoption.GridTextFieldOptions;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class RepeatGridTextField extends AbstractTextField implements ActionOnClick {
-    RepeatTextFieldOptions options;
+    GridTextFieldOptions options;
 
     @Override
     public void render() {
@@ -32,7 +32,7 @@ public class RepeatGridTextField extends AbstractTextField implements ActionOnCl
 
     @Override
     public void setOptions(AbstractGridOptions options) {
-        this.options = (RepeatTextFieldOptions) options;
+        this.options = (GridTextFieldOptions) options;
     }
 
     @Override

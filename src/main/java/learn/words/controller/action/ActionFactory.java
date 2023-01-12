@@ -1,5 +1,5 @@
 package learn.words.controller.action;
 
-public interface AbstractAction {
+public interface ActionFactory {
     void executeCommand();
 }

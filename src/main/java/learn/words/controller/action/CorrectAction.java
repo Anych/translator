@@ -2,40 +2,26 @@ package learn.words.controller.action;
 
 
 import learn.words.controller.action.translate_word_window.*;
-import learn.words.view.option.ChangeTranslationButtonOptions;
-import learn.words.view.option.AbstractGridOptions;
-import learn.words.view.option.buttonoption.OpenNewWindowGridButtonOptions;
-import learn.words.view.option.buttonoption.UseBothTextFieldsButtonOptions;
+import learn.words.view.option.buttonoption.GridButtonOptions;
 
-public class CorrectAction implements AbstractAction {
-    private AbstractGridOptions options;
-    private AbstractAction action;
+public class CorrectAction implements ActionFactory {
+    private final GridButtonOptions options;
+    private ActionFactory action;
 
-    public CorrectAction(AbstractGridOptions options) {
+    public CorrectAction(GridButtonOptions options) {
         this.options = options;
     }
 
     public void chooseCorrectAction() {
-        String optionsName = getOptionsName();
+        String optionsName = options.getAction();
 
-        if ("UseBothTextFieldsButtonOptions".equals(optionsName)) {
-            if (((UseBothTextFieldsButtonOptions) options).getButtonName().equals("Очистить")) {
-                action = new CleanWindowAction((UseBothTextFieldsButtonOptions) options);
-            } else if (((UseBothTextFieldsButtonOptions) options).getButtonName().equals("Сохранить")) {
-                action = new SaveWordAction((UseBothTextFieldsButtonOptions) options);
-            } else {
-                action = new TranslateWordAction((UseBothTextFieldsButtonOptions) options);
-            }
-
-        } else if ("ChangeTranslationButtonOptions".equals(optionsName)) {
-            action = new ChangeTranslationAction((ChangeTranslationButtonOptions) options);
-        } else {
-            action = new NewFrameAction((OpenNewWindowGridButtonOptions) options);
+        switch (optionsName) {
+            case "Очистить" -> action = new CleanWindowAction(options);
+            case "Сохранить" -> action = new SaveWordAction(options);
+            case "Перевести слово" -> action = new TranslateWordAction(options);
+            case "ChangeTranslation" -> action = new ChangeTranslationAction(options);
+            default -> action = new NewWindowAction(options);
         }
-    }
-
-    private String getOptionsName() {
-        return options.getClass().getSimpleName();
     }
 
     @Override

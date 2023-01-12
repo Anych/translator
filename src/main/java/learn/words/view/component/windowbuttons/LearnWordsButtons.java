@@ -4,7 +4,8 @@ import learn.words.view.component.WindowButtonsBuilder;
 import learn.words.view.element.button.gridbutton.GridButtonFactory;
 import learn.words.view.element.button.gridbutton.ImageButtonFactory;
 import learn.words.view.option.AbstractGridOptions;
-import learn.words.view.option.buttonoption.ButtonWithImageOptions;
+import learn.words.view.option.buttonoption.GridButtonOptions;
+import learn.words.view.window.MainWindow;
 
 import javax.swing.*;
 import java.awt.*;
@@ -23,9 +24,9 @@ public class LearnWordsButtons extends WindowButtonsBuilder {
     @Override
     public void createElements() {
         createParticularElementOnPane(
-                new ButtonWithImageOptions(3, 0, "exit"));
+                new GridButtonOptions(new MainWindow(), frame, "exit", 3, 0));
         createParticularElementOnPane(
-                new ButtonWithImageOptions(3, 1, "save"));
+                new GridButtonOptions(new MainWindow(), frame, "save", 3, 1));
     }
 
     @Override

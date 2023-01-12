@@ -4,7 +4,7 @@ import learn.words.view.component.WindowTextFieldsBuilder;
 import learn.words.view.element.ElementFactory;
 import learn.words.view.element.textfield.gridtextfield.RepeatGridTextField;
 import learn.words.view.option.AbstractGridOptions;
-import learn.words.view.option.textfieldoption.RepeatTextFieldOptions;
+import learn.words.view.option.textfieldoption.GridTextFieldOptions;
 
 import javax.swing.*;
 import java.awt.*;
@@ -20,9 +20,9 @@ public class LearnWordsTextFields extends WindowTextFieldsBuilder {
     @Override
     public void createElements() {
         learningWord = createParticularElementOnPane(
-                new RepeatTextFieldOptions(0, 0, frame, Color.YELLOW));
+                new GridTextFieldOptions(frame, Color.YELLOW, 0, 0));
         translateOfLearningWord = createParticularElementOnPane(
-                new RepeatTextFieldOptions(0, 1, frame, Color.WHITE));
+                new GridTextFieldOptions(frame, Color.WHITE, 0, 0));
     }
 
     @Override

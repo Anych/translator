@@ -3,17 +3,17 @@ package learn.words.view.element.button.gridbutton;
 import learn.words.controller.action.CorrectAction;
 import learn.words.view.element.button.AbstractButton;
 import learn.words.view.option.AbstractGridOptions;
-import learn.words.view.option.buttonoption.AbstractGridButtonOptions;
+import learn.words.view.option.buttonoption.GridButtonOptions;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class GridButtonFactory extends AbstractButton {
-    AbstractGridButtonOptions options;
+    GridButtonOptions options;
 
     @Override
     public void setOptions(AbstractGridOptions options) {
-        this.options = (AbstractGridButtonOptions) options;
+        this.options = (GridButtonOptions) options;
     }
 
     @Override

@@ -19,8 +19,8 @@ public class TranslateWordWindowTextFields extends WindowTextFieldsBuilder {
 
     @Override
     public void createElements() {
-        inputTextField = createParticularElementOnPane(new GridTextFieldOptions(0, 0, true));
-        disabledTextField = createParticularElementOnPane(new GridTextFieldOptions(3, 0, false));
+        inputTextField = createParticularElementOnPane(new GridTextFieldOptions(true, 0, 0));
+        disabledTextField = createParticularElementOnPane(new GridTextFieldOptions(false, 3, 0));
     }
 
     @Override

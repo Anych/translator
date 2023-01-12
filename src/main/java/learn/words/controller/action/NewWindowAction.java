@@ -1,11 +1,11 @@
 package learn.words.controller.action;
 
-import learn.words.view.option.buttonoption.OpenNewWindowGridButtonOptions;
+import learn.words.view.option.buttonoption.GridButtonOptions;
 
-public class NewFrameAction implements AbstractAction {
-    OpenNewWindowGridButtonOptions options;
+public class NewWindowAction implements ActionFactory {
+    GridButtonOptions options;
 
-    public NewFrameAction(OpenNewWindowGridButtonOptions options) {
+    public NewWindowAction(GridButtonOptions options) {
         this.options = options;
     }
 

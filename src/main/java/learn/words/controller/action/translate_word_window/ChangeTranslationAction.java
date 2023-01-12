@@ -1,16 +1,16 @@
 package learn.words.controller.action.translate_word_window;
 
-import learn.words.controller.action.AbstractAction;
-import learn.words.view.option.ChangeTranslationButtonOptions;
+import learn.words.controller.action.ActionFactory;
+import learn.words.view.option.buttonoption.GridButtonOptions;
 
 import javax.swing.*;
 import java.util.List;
 
 // TODO: create new abstract class with translate word actions and new class for options
-public class ChangeTranslationAction implements AbstractAction {
-    private final ChangeTranslationButtonOptions options;
+public class ChangeTranslationAction implements ActionFactory {
+    private final GridButtonOptions options;
 
-    public ChangeTranslationAction(ChangeTranslationButtonOptions options) {
+    public ChangeTranslationAction(GridButtonOptions options) {
         this.options = options;
     }
 
@@ -52,7 +52,7 @@ public class ChangeTranslationAction implements AbstractAction {
     }
 
     private int getTranslatedFieldIndex(String translatedText) {
-        List<String> translatedTexts = options.getWindow().getTranslatedWords();
+        List<String> translatedTexts = options.getTranslateWordWindow().getTranslatedWords();
         if (translatedTexts != null) {
             return translatedTexts.indexOf(translatedText);
         }
@@ -60,6 +60,6 @@ public class ChangeTranslationAction implements AbstractAction {
     }
 
     private List<String> getTranslatedWords() {
-        return options.getWindow().getTranslatedWords();
+        return options.getTranslateWordWindow().getTranslatedWords();
     }
 }

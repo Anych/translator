@@ -1,16 +1,16 @@
 package learn.words.controller.action.translate_word_window;
 
-import learn.words.controller.action.AbstractAction;
+import learn.words.controller.action.ActionFactory;
 import learn.words.controller.translator.TranslateWord;
-import learn.words.view.option.buttonoption.UseBothTextFieldsButtonOptions;
+import learn.words.view.option.buttonoption.GridButtonOptions;
 
 import javax.swing.*;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
-public class TranslateWordAction implements AbstractAction {
-    private final UseBothTextFieldsButtonOptions options;
-    public TranslateWordAction(UseBothTextFieldsButtonOptions options) {
+public class TranslateWordAction implements ActionFactory {
+    private final GridButtonOptions options;
+    public TranslateWordAction(GridButtonOptions options) {
         this.options = options;
     }
 
@@ -66,10 +66,10 @@ public class TranslateWordAction implements AbstractAction {
     }
 
     private void setMainFrameTranslatedWordList(List<String> translatedWordList) {
-        options.getWindow().setTranslatedWords(translatedWordList);
+        options.getTranslateWordWindow().setTranslatedWords(translatedWordList);
     }
 
     private void setWordToTranslate(String text) {
-        options.getWindow().setWordToTranslate(text);
+        options.getTranslateWordWindow().setWordToTranslate(text);
     }
 }

@@ -1,9 +1,7 @@
 package learn.words.view.component.windowbuttons;
 
 import learn.words.view.component.WindowButtonsBuilder;
-import learn.words.view.option.ChangeTranslationButtonOptions;
-import learn.words.view.option.buttonoption.OpenNewWindowGridButtonOptions;
-import learn.words.view.option.buttonoption.UseBothTextFieldsButtonOptions;
+import learn.words.view.option.buttonoption.GridButtonOptions;
 import learn.words.view.window.MainWindow;
 import learn.words.view.window.TranslateWordWindow;
 
@@ -26,22 +24,22 @@ public class TranslatorWindowButtons extends WindowButtonsBuilder {
 
     @Override
     public void createElements() {
-        createParticularElementOnPane(new UseBothTextFieldsButtonOptions(window,
+        createParticularElementOnPane(new GridButtonOptions(window,
                 inputTextField, disabledTextField, "Перевести слово", 1, 1));
 
-        createParticularElementOnPane(new UseBothTextFieldsButtonOptions(window,
+        createParticularElementOnPane(new GridButtonOptions(window,
                 inputTextField, disabledTextField, "Сохранить", 3, 1));
 
-        createParticularElementOnPane(new ChangeTranslationButtonOptions(window,
+        createParticularElementOnPane(new GridButtonOptions(window,
                 disabledTextField, "Предыдущий перевод", 1, 2));
 
-        createParticularElementOnPane(new ChangeTranslationButtonOptions(window,
+        createParticularElementOnPane(new GridButtonOptions(window,
                 disabledTextField, "Следующий перевод", 3, 2));
 
-        createParticularElementOnPane(new UseBothTextFieldsButtonOptions(window,
+        createParticularElementOnPane(new GridButtonOptions(window,
                 inputTextField, disabledTextField, "Очистить", 1, 3));
 
-        createParticularElementOnPane(new OpenNewWindowGridButtonOptions(
+        createParticularElementOnPane(new GridButtonOptions(
                 new MainWindow(), frame, "В главное меню", 3, 3));
     }
 }

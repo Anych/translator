@@ -1,14 +1,14 @@
 package learn.words.controller.action.translate_word_window;
 
-import learn.words.controller.action.AbstractAction;
-import learn.words.view.option.buttonoption.UseBothTextFieldsButtonOptions;
+import learn.words.controller.action.ActionFactory;
+import learn.words.view.option.buttonoption.GridButtonOptions;
 
 import java.util.ArrayList;
 
-public class CleanWindowAction implements AbstractAction {
-    private final UseBothTextFieldsButtonOptions options;
+public class CleanWindowAction implements ActionFactory {
+    private final GridButtonOptions options;
 
-    public CleanWindowAction(UseBothTextFieldsButtonOptions options) {
+    public CleanWindowAction(GridButtonOptions options) {
         this.options = options;
     }
     @Override
@@ -40,10 +40,10 @@ public class CleanWindowAction implements AbstractAction {
     }
 
     private void cleanTranslatedTextField() {
-        options.getWindow().setTranslatedWords(new ArrayList<>());
+        options.getTranslateWordWindow().setTranslatedWords(new ArrayList<>());
     }
 
     private void cleanWordToTranslate() {
-        options.getWindow().setWordToTranslate("");
+        options.getTranslateWordWindow().setWordToTranslate("");
     }
 }

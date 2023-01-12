@@ -1,17 +1,17 @@
 package learn.words.controller.action.translate_word_window;
 
-import learn.words.controller.action.AbstractAction;
+import learn.words.controller.action.ActionFactory;
 import learn.words.model.entity.Word;
 import learn.words.model.entity.dao.WordDAOImpl;
-import learn.words.view.option.buttonoption.UseBothTextFieldsButtonOptions;
+import learn.words.view.option.buttonoption.GridButtonOptions;
 import org.postgresql.util.PSQLException;
 
 import java.sql.SQLException;
 
-public class SaveWordAction implements AbstractAction {
-    private final UseBothTextFieldsButtonOptions options;
+public class SaveWordAction implements ActionFactory {
+    private final GridButtonOptions options;
 
-    public SaveWordAction(UseBothTextFieldsButtonOptions options) {
+    public SaveWordAction(GridButtonOptions options) {
         this.options = options;
     }
 
@@ -25,7 +25,7 @@ public class SaveWordAction implements AbstractAction {
     }
 
     private boolean isTranslateAppropriateWithCurrentWordInInputTextField() {
-        return options.getWindow().getWordToTranslate().equals(getInputTextField());
+        return options.getTranslateWordWindow().getWordToTranslate().equals(getInputTextField());
     }
 
     private void doOperationsInDB() {
