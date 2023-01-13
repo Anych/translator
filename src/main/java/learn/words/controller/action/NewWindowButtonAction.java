@@ -2,10 +2,10 @@ package learn.words.controller.action;
 
 import learn.words.view.option.GridButtonOptions;
 
-public class NewWindowAction implements ActionFactory {
+public class NewWindowButtonAction implements ActionFactory {
     GridButtonOptions options;
 
-    public NewWindowAction(GridButtonOptions options) {
+    public NewWindowButtonAction(GridButtonOptions options) {
         this.options = options;
     }
 
@@ -20,7 +20,6 @@ public class NewWindowAction implements ActionFactory {
     }
 
     private void openNewWindow() {
-        options.getNewFrame().renderWindow(false);
-        options.getNewFrame().createElements();
+        options.getNewFrame().createWindow();
     }
 }

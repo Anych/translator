@@ -8,7 +8,7 @@ import learn.words.view.option.GridTextFieldOptions;
 import javax.swing.*;
 import java.util.List;
 
-public class TranslateWordWindow extends AbstractWindow {
+public class TranslateWordWindow extends AbstractWindowBuilder {
     private static final int WIDTH = 690;
     private static final int HEIGHT = 140;
     private List<String> translatedWords;
@@ -20,7 +20,7 @@ public class TranslateWordWindow extends AbstractWindow {
     }
 
     @Override
-    public void createElements() {
+    public void createComponents() {
         JTextField inputTextField = new GridTextFieldFactory(constraints, pane,
                 new GridTextFieldOptions(true, 0, 0)).getTextField();
 
@@ -49,6 +49,11 @@ public class TranslateWordWindow extends AbstractWindow {
     @Override
     protected void isUndecorated() {
         frame.setUndecorated(false);
+    }
+
+    @Override
+    protected void isResizable() {
+        frame.setResizable(false);
     }
 
     public void setTranslatedWords(List<String> translatedWords) {

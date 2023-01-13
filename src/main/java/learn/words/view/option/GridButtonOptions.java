@@ -1,6 +1,6 @@
 package learn.words.view.option;
 
-import learn.words.view.window.AbstractWindow;
+import learn.words.view.window.AbstractWindowBuilder;
 import learn.words.view.window.TranslateWordWindow;
 
 import javax.swing.*;
@@ -8,13 +8,13 @@ import javax.swing.*;
 public class GridButtonOptions extends AbstractGridOptions {
     private final String action;
     private final String buttonName;
-    private AbstractWindow newFrame;
+    private AbstractWindowBuilder newFrame;
     private JFrame frame;
     private JTextField inputTextField;
     private JTextField disabledTextField;
     private TranslateWordWindow translateWordWindow;
 
-    public GridButtonOptions(AbstractWindow newFrame, JFrame frame,
+    public GridButtonOptions(AbstractWindowBuilder newFrame, JFrame frame,
                              String buttonName, int gridX, int gridY) {
         super(gridX, gridY);
         this.action = "NewWindow";
@@ -46,7 +46,7 @@ public class GridButtonOptions extends AbstractGridOptions {
         return action;
     }
 
-    public AbstractWindow getNewFrame() {
+    public AbstractWindowBuilder getNewFrame() {
         return newFrame;
     }
 

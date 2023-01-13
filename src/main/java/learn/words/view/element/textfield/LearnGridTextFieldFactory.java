@@ -7,13 +7,13 @@ import learn.words.view.option.GridTextFieldOptions;
 import javax.swing.*;
 import java.awt.*;
 
-public class RepeatGridTextFieldFactory implements ElementFactory {
+public class LearnGridTextFieldFactory implements ElementFactory {
     GridBagConstraints constraints;
     GridTextFieldOptions options;
     JTextField textField;
 
-    public RepeatGridTextFieldFactory(GridBagConstraints constraints, Container pane,
-                                      GridTextFieldOptions options) {
+    public LearnGridTextFieldFactory(GridBagConstraints constraints, Container pane,
+                                     GridTextFieldOptions options) {
         this.constraints = constraints;
         this.options = options;
         this.textField = create();
@@ -65,7 +65,8 @@ public class RepeatGridTextFieldFactory implements ElementFactory {
         textField.setEditable(false);
     }
 
-    public JTextField getTextField() {
+    @Override
+    public JTextField getComponent() {
         return textField;
     }
 }

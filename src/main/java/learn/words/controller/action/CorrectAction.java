@@ -20,7 +20,7 @@ public class CorrectAction implements ActionFactory {
             case "Сохранить" -> action = new SaveButtonAction(options);
             case "Перевести слово" -> action = new TranslateButtonAction(options);
             case "ChangeTranslation" -> action = new ChangeTranslationButtonsAction(options);
-            default -> action = new NewWindowAction(options);
+            default -> action = new NewWindowButtonAction(options);
         }
     }
 

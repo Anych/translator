@@ -7,4 +7,5 @@ public interface ElementFactory {
     void render();
     void onClick();
     JComponent createComponent();
+    JComponent getComponent();
 }

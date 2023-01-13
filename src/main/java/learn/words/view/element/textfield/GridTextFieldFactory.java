@@ -48,6 +48,11 @@ public class GridTextFieldFactory implements ElementFactory {
         return new JTextField(30);
     }
 
+    @Override
+    public JTextField getComponent() {
+        return textField;
+    }
+
     public JTextField getTextField() {
         return textField;
     }

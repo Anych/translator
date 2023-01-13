@@ -46,4 +46,9 @@ public class GridButtonFactory implements ElementFactory {
     public JButton createComponent() {
         return new JButton(options.getButtonName());
     }
+
+    @Override
+    public JButton getComponent() {
+        return button;
+    }
 }

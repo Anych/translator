@@ -3,29 +3,30 @@ package learn.words.view.window;
 import javax.swing.*;
 import java.awt.*;
 
-public abstract class AbstractWindow {
+public abstract class AbstractWindowBuilder {
     protected JFrame frame;
     protected Container pane;
     protected GridBagConstraints constraints;
     private final int WIDTH;
     private final int HEIGHT;
 
-    public AbstractWindow(int width, int height) {
+    public AbstractWindowBuilder(int width, int height) {
         this.WIDTH = width;
         this.HEIGHT = height;
     }
 
-    public void renderWindow(boolean isResizable) {
-        setFrameOptions(isResizable);
+    public void createWindow() {
+        setFrameOptions();
         setPaneOptions();
         setConstraints();
         setWindowSize();
         setWindowLocation();
+        createComponents();
     }
 
-    protected void setFrameOptions(boolean isResizable) {
+    protected void setFrameOptions() {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setResizable(isResizable);
+        isResizable();
         isUndecorated();
         frame.pack();
         frame.setVisible(true);
@@ -44,7 +45,8 @@ public abstract class AbstractWindow {
         this.constraints = new GridBagConstraints();
     }
 
-    public abstract void createElements();
+    protected abstract void createComponents();
+    protected abstract void isResizable();
     protected abstract void isUndecorated();
     protected void setWindowLocation() {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();

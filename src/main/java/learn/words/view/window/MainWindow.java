@@ -6,7 +6,7 @@ import learn.words.view.option.GridButtonOptions;
 import javax.swing.*;
 import java.awt.*;
 
-public class MainWindow extends AbstractWindow {
+public class MainWindow extends AbstractWindowBuilder {
     private static final int WIDTH = 400;
     private static final int HEIGHT = 90;
 
@@ -16,7 +16,7 @@ public class MainWindow extends AbstractWindow {
     }
 
     @Override
-    public void createElements() {
+    public void createComponents() {
         new GridButtonFactory(constraints, pane, new GridButtonOptions(
                 new TranslateWordWindow(), frame, "Добавить слово", 0, 0));
         new GridButtonFactory(constraints, pane, new GridButtonOptions(
@@ -35,6 +35,11 @@ public class MainWindow extends AbstractWindow {
     @Override
     protected void isUndecorated() {
         frame.setUndecorated(false);
+    }
+
+    @Override
+    protected void isResizable() {
+        frame.setResizable(false);
     }
 
     @Override
