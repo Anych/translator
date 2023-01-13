@@ -1,6 +1,6 @@
 package learn.words.view.element.button;
 
-import learn.words.controller.action.CorrectAction;
+import learn.words.controller.action.ActionStrategy;
 import learn.words.view.element.ElementFactory;
 import learn.words.view.option.GridButtonOptions;
 
@@ -36,7 +36,7 @@ public class GridButtonFactory implements ElementFactory {
     @Override
     public void onClick() {
         button.addActionListener(e -> {
-            CorrectAction action = new CorrectAction(options);
+            ActionStrategy action = new ActionStrategy(options);
             action.chooseCorrectAction();
             action.executeCommand();
         });

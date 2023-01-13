@@ -1,4 +1,4 @@
-package learn.words.controller.action.translatebuttons;
+package learn.words.controller.action.translatewindowactions;
 
 import learn.words.controller.action.ActionFactory;
 import learn.words.controller.translator.TranslateWord;

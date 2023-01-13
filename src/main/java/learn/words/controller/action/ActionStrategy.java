@@ -1,14 +1,14 @@
 package learn.words.controller.action;
 
 
-import learn.words.controller.action.translatebuttons.*;
+import learn.words.controller.action.translatewindowactions.*;
 import learn.words.view.option.GridButtonOptions;
 
-public class CorrectAction implements ActionFactory {
+public class ActionStrategy implements ActionFactory {
     private final GridButtonOptions options;
     private ActionFactory action;
 
-    public CorrectAction(GridButtonOptions options) {
+    public ActionStrategy(GridButtonOptions options) {
         this.options = options;
     }
 

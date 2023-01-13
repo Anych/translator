@@ -1,4 +1,4 @@
-package learn.words.controller.action;
+package learn.words.controller.action.learnwindowactions;
 
 import javax.swing.*;
 import java.awt.*;

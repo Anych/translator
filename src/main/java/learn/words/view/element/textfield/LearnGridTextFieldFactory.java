@@ -1,6 +1,6 @@
 package learn.words.view.element.textfield;
 
-import learn.words.controller.action.FrameDragListener;
+import learn.words.controller.action.learnwindowactions.FrameDragListener;
 import learn.words.view.element.ElementFactory;
 import learn.words.view.option.GridTextFieldOptions;
 
