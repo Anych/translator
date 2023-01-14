@@ -1,7 +1,7 @@
 package learn.words.controller.translator;
 
 import com.google.gson.Gson;
-import learn.words.controller.PropertiesFile;
+import learn.words.controller.FileWorker;
 import learn.words.model.json.TranslateResponse;
 import org.asynchttpclient.AsyncHttpClient;
 import org.asynchttpclient.DefaultAsyncHttpClient;
@@ -40,7 +40,7 @@ public class TranslateWord {
 
     private String getResponseBody(AsyncHttpClient client) throws ExecutionException,
             InterruptedException, TimeoutException {
-        Properties prop = PropertiesFile.getProperties("src/main/resources/api_config.properties");
+        Properties prop = FileWorker.getProperties("src/main/resources/api_config.properties");
 
         if (!prop.isEmpty()) {
             return client.prepare("POST", prop.getProperty("URL"))

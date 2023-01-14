@@ -9,7 +9,7 @@ public class DatabaseConnection {
     static Connection connection;
 
     public static Connection connect() {
-        Properties prop = PropertiesFile.getProperties("src/main/resources/db.properties");
+        Properties prop = FileWorker.getProperties("src/main/resources/db.properties");
         try {
             return connection = DriverManager.getConnection(prop.getProperty("URL"),
                     prop.getProperty("USER"), prop.getProperty("PASSWORD"));

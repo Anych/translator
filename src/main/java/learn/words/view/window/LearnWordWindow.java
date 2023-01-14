@@ -38,13 +38,13 @@ public class LearnWordWindow extends AbstractWindowBuilder {
                 new GridTextFieldOptions(frame, Color.YELLOW, 0, 0)).getComponent();
 
         translateOfLearningWord = new LearnGridTextFieldFactory(constraints, pane,
-                new GridTextFieldOptions(frame, Color.WHITE, 0, 0)).getComponent();
+                new GridTextFieldOptions(frame, Color.WHITE, 0, 1)).getComponent();
 
         new ImageButtonFactory(constraints, pane, new GridButtonOptions(
-                new MainWindow(), frame, "exit", 3, 0));
+                new MainWindow(), frame, "exit", 2, 0));
 
         saveButton = new ImageButtonFactory(constraints, pane, new GridButtonOptions(
-                new MainWindow(), frame, "save", 3, 1)).getComponent();
+                new MainWindow(), frame, "save", 2, 1)).getComponent();
     }
 
     @Override

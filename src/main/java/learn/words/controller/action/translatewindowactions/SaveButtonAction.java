@@ -1,15 +1,15 @@
 package learn.words.controller.action.translatewindowactions;
 
+import learn.words.controller.FileWorker;
 import learn.words.controller.action.ActionFactory;
-import learn.words.model.entity.Word;
-import learn.words.model.entity.dao.WordDAOImpl;
+import learn.words.model.AllWords;
 import learn.words.view.option.GridButtonOptions;
-import org.postgresql.util.PSQLException;
 
-import java.sql.SQLException;
+import java.io.*;
 
 public class SaveButtonAction implements ActionFactory {
     private final GridButtonOptions options;
+    private final String path = "src/main/resources/files/dictionary.ser";
 
     public SaveButtonAction(GridButtonOptions options) {
         this.options = options;
@@ -20,38 +20,46 @@ public class SaveButtonAction implements ActionFactory {
         boolean appropriate = isTranslateAppropriateWithCurrentWordInInputTextField();
 
         if (appropriate) {
-            doOperationsInDB();
+            saveWordInFile();
+            setDisabledTextField("Сохранено");
+        } else {
+            setDisabledTextField("Слово для перевода изменилось");
+        }
+    }
+
+    private void saveWordInFile() {
+        AllWords allWords = getAllWords();
+        addWordToAllWordsObject(allWords);
+        writeObjectInFile(allWords);
+    }
+
+    private AllWords getAllWords() {
+        try (FileInputStream input = FileWorker.getFileInputStream(path)){
+            ObjectInputStream objectInputStream = new ObjectInputStream(input);
+            return (AllWords) objectInputStream.readObject();
+
+        } catch (IOException e) {
+            return new AllWords();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void addWordToAllWordsObject(AllWords allWords) {
+        allWords.addWord(getInputTextField(), getDisabledTextField());
+    }
+
+    private void writeObjectInFile(AllWords allWords) {
+        try (FileOutputStream outputStream = FileWorker.getFileOutputStream(path)) {
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
+            objectOutputStream.writeObject(allWords);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
     private boolean isTranslateAppropriateWithCurrentWordInInputTextField() {
         return options.getTranslateWordWindow().getWordToTranslate().equals(getInputTextField());
-    }
-
-    private void doOperationsInDB() {
-        try {
-            Word word = createNewWordObject();
-            createNewWordInDB(word);
-            setDisabledTextField("Сохранено");
-
-        } catch (PSQLException e) {
-            setDisabledTextField("Слово уже существует");
-        } catch (SQLException e) {
-            setDisabledTextField("Сохранение не удалось");
-        }
-    }
-
-    private Word createNewWordObject() {
-        Word word = new Word();
-        word.setEnglish(getInputTextField());
-        word.setRussian(getDisabledTextField());
-
-        return word;
-    }
-
-    private void createNewWordInDB(Word newWord) throws SQLException {
-        WordDAOImpl wordDAO = new WordDAOImpl();
-        wordDAO.add(newWord);
     }
 
     private String getInputTextField() {
