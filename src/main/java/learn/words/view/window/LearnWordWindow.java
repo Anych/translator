@@ -13,6 +13,7 @@ public class LearnWordWindow extends AbstractWindowBuilder {
     private static final int WIDTH = 477;
     private static final int HEIGHT = 54;
     WordsOnTextFields wordsOnTextFields;
+    Thread thread;
     public LearnWordWindow() {
         super(WIDTH, HEIGHT);
         this.frame = new JFrame();
@@ -37,11 +38,13 @@ public class LearnWordWindow extends AbstractWindowBuilder {
                 new GridTextFieldOptions(frame, Color.WHITE, 0, 1)).getComponent();
 
         wordsOnTextFields = new WordsOnTextFields(learningWord, translateOfLearningWord);
+        Runnable task = wordsOnTextFields::startExecution;
+        thread = new Thread(task);
 
         new ImageButtonFactory(constraints, pane, new GridButtonOptions(
                 new MainWindow(), frame, "exit", 2, 0));
 
-        new ImageButtonFactory(constraints, pane, new GridButtonOptions(
+        new ImageButtonFactory(constraints, pane, new GridButtonOptions(thread,
                 wordsOnTextFields, "save", 2, 1));
     }
 
@@ -61,8 +64,6 @@ public class LearnWordWindow extends AbstractWindowBuilder {
     }
 
     private void setWordsInFields() {
-        Runnable task = () -> wordsOnTextFields.startExecution();
-        Thread thread = new Thread(task);
         thread.start();
     }
 }

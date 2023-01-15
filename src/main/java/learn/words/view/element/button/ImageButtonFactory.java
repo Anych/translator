@@ -1,5 +1,6 @@
 package learn.words.view.element.button;
 
+import learn.words.controller.action.ActionStrategy;
 import learn.words.view.option.GridButtonOptions;
 
 import javax.swing.*;
@@ -15,5 +16,14 @@ public class ImageButtonFactory extends GridButtonFactory {
     @Override
     public JButton createComponent() {
         return new JButton(new ImageIcon("src/main/resources/images/" + options.getButtonName() + ".jpg"));
+    }
+
+    @Override
+    public void onClick() {
+        button.addActionListener(e -> {
+            ActionStrategy action = new ActionStrategy(options);
+            action.chooseCorrectAction();
+            action.executeCommand();
+        });
     }
 }

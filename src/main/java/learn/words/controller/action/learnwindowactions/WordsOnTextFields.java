@@ -56,11 +56,11 @@ public class WordsOnTextFields {
         learningWordField.setText(word);
     }
 
-    private void waitTime() {
+    public void waitTime() {
         try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+            prepareWords();
         }
     }
 
@@ -84,5 +84,9 @@ public class WordsOnTextFields {
 
     public JTextField getTranslateOfLearningWordField() {
         return translateOfLearningWordField;
+    }
+
+    public void asd() {
+        System.out.println(Thread.currentThread().getName());
     }
 }

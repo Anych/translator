@@ -15,7 +15,7 @@ public class GridButtonOptions extends AbstractGridOptions {
     private JTextField disabledTextField;
     private TranslateWordWindow translateWordWindow;
     private WordsOnTextFields wordsOnTextFields;
-
+    private Thread thread;
     public GridButtonOptions(AbstractWindowBuilder newFrame, JFrame frame,
                              String buttonName, int gridX, int gridY) {
         super(gridX, gridY);
@@ -44,8 +44,9 @@ public class GridButtonOptions extends AbstractGridOptions {
         this.disabledTextField = disabledTextField;
     }
 
-    public GridButtonOptions(WordsOnTextFields wordsOnTextFields, String action, int gridX, int gridY) {
+    public GridButtonOptions(Thread thread, WordsOnTextFields wordsOnTextFields, String action, int gridX, int gridY) {
         super(gridX, gridY);
+        this.thread = thread;
         this.buttonName = action;
         this.wordsOnTextFields = wordsOnTextFields;
         this.action = action;
@@ -81,5 +82,17 @@ public class GridButtonOptions extends AbstractGridOptions {
 
     public WordsOnTextFields getWordsOnTextFields() {
         return wordsOnTextFields;
+    }
+
+    public void setWordsOnTextFields(WordsOnTextFields wordsOnTextFields) {
+        this.wordsOnTextFields = wordsOnTextFields;
+    }
+
+    public Thread getThread() {
+        return thread;
+    }
+
+    public void setThread(Thread thread) {
+        this.thread = thread;
     }
 }
