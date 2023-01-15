@@ -20,9 +20,9 @@ public class MainWindow extends AbstractWindowBuilder {
         new GridButtonFactory(constraints, pane, new GridButtonOptions(
                 new TranslateWordWindow(), frame, "Добавить слово", 0, 0));
         new GridButtonFactory(constraints, pane, new GridButtonOptions(
-                new LearnWordWindow("Learn"), frame, "Выучить новые слова", 1, 0));
+                new LearnWordWindow(), frame, "Выучить новые слова", 1, 0));
         new GridButtonFactory(constraints, pane, new GridButtonOptions(
-                new LearnWordWindow("Repeat"), frame, "Повторить выученные слова", 0, 1));
+                new TranslateWordWindow(), frame, "Посмотреть выученные слова", 0, 1));
         new GridButtonFactory(constraints, pane, new GridButtonOptions(
                 new TranslateWordWindow(), frame, "Посмотреть список слов", 1, 1));
     }

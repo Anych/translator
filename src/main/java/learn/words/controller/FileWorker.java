@@ -1,5 +1,7 @@
 package learn.words.controller;
 
+import learn.words.model.AllWords;
+
 import java.io.*;
 import java.util.Properties;
 

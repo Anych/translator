@@ -1,6 +1,6 @@
 package learn.words.view.window;
 
-import learn.words.controller.action.learnwindowactions.WordLearning;
+import learn.words.controller.action.learnwindowactions.LearnWordsOnTextFields;
 import learn.words.view.element.button.ImageButtonFactory;
 import learn.words.view.element.textfield.LearnGridTextFieldFactory;
 import learn.words.view.option.GridButtonOptions;
@@ -15,10 +15,8 @@ public class LearnWordWindow extends AbstractWindowBuilder {
     private JTextField learningWord;
     private JTextField translateOfLearningWord;
     private JButton saveButton;
-    private String exercise;
-    public LearnWordWindow(String exercise) {
+    public LearnWordWindow() {
         super(WIDTH, HEIGHT);
-        this.exercise = exercise;
         this.frame = new JFrame();
     }
 
@@ -29,7 +27,7 @@ public class LearnWordWindow extends AbstractWindowBuilder {
         setWindowSize();
         setWindowLocation();
         createComponents();
-        setLearningWords();
+        setWordsInFields();
     }
 
     @Override
@@ -62,8 +60,8 @@ public class LearnWordWindow extends AbstractWindowBuilder {
         frame.setUndecorated(true);
     }
 
-    private void setLearningWords() {
-        Runnable task = () -> new WordLearning(learningWord, translateOfLearningWord, saveButton, exercise);
+    private void setWordsInFields() {
+        Runnable task = () -> new LearnWordsOnTextFields(learningWord, translateOfLearningWord, saveButton);
         Thread thread = new Thread(task);
         thread.start();
     }
