@@ -5,23 +5,27 @@ import learn.words.controller.RandomKey;
 import javax.swing.*;
 import java.util.Map;
 
-public class LearnWordsOnTextFields {
+public class WordsOnTextFields {
     private final JTextField learningWordField;
     private final JTextField translateOfLearningWordField;
     Map<String, String> learningWords;
     private String word;
     private String translate;
 
-    public LearnWordsOnTextFields(JTextField learningWordField, JTextField translateOfLearningWordField) {
+    public WordsOnTextFields(JTextField learningWordField, JTextField translateOfLearningWordField) {
         this.learningWordField = learningWordField;
         this.translateOfLearningWordField = translateOfLearningWordField;
     }
 
     public void startExecution() {
         prepareWords();
-        getWords();
-        setWords();
-        continueExecution();
+        if (learningWords.size() > 0) {
+            getWords();
+            setWords();
+            continueExecution();
+        } else {
+            setTranslation("Все слова выучены");
+        }
     }
 
     private void prepareWords() {
@@ -54,7 +58,7 @@ public class LearnWordsOnTextFields {
 
     private void waitTime() {
         try {
-            Thread.sleep(1000);
+            Thread.sleep(5000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

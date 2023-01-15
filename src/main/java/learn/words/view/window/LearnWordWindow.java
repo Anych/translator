@@ -1,6 +1,6 @@
 package learn.words.view.window;
 
-import learn.words.controller.action.learnwindowactions.LearnWordsOnTextFields;
+import learn.words.controller.action.learnwindowactions.WordsOnTextFields;
 import learn.words.view.element.button.ImageButtonFactory;
 import learn.words.view.element.textfield.LearnGridTextFieldFactory;
 import learn.words.view.option.GridButtonOptions;
@@ -12,10 +12,7 @@ import java.awt.*;
 public class LearnWordWindow extends AbstractWindowBuilder {
     private static final int WIDTH = 477;
     private static final int HEIGHT = 54;
-    private JTextField learningWord;
-    private JTextField translateOfLearningWord;
-    private JButton saveButton;
-    LearnWordsOnTextFields wordsOnTextFields;
+    WordsOnTextFields wordsOnTextFields;
     public LearnWordWindow() {
         super(WIDTH, HEIGHT);
         this.frame = new JFrame();
@@ -33,19 +30,19 @@ public class LearnWordWindow extends AbstractWindowBuilder {
 
     @Override
     public void createComponents() {
-        learningWord = new LearnGridTextFieldFactory(constraints, pane,
+        JTextField learningWord = new LearnGridTextFieldFactory(constraints, pane,
                 new GridTextFieldOptions(frame, Color.YELLOW, 0, 0)).getComponent();
 
-        translateOfLearningWord = new LearnGridTextFieldFactory(constraints, pane,
+        JTextField translateOfLearningWord = new LearnGridTextFieldFactory(constraints, pane,
                 new GridTextFieldOptions(frame, Color.WHITE, 0, 1)).getComponent();
 
-        wordsOnTextFields = new LearnWordsOnTextFields(learningWord, translateOfLearningWord);
+        wordsOnTextFields = new WordsOnTextFields(learningWord, translateOfLearningWord);
 
         new ImageButtonFactory(constraints, pane, new GridButtonOptions(
                 new MainWindow(), frame, "exit", 2, 0));
 
-        saveButton = new ImageButtonFactory(constraints, pane, new GridButtonOptions(
-                wordsOnTextFields, "save", 2, 1)).getComponent();
+        new ImageButtonFactory(constraints, pane, new GridButtonOptions(
+                wordsOnTextFields, "save", 2, 1));
     }
 
     @Override

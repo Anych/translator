@@ -6,23 +6,25 @@ import learn.words.view.option.GridButtonOptions;
 
 import java.util.Map;
 
-public class LearnWordButtonAction implements ActionFactory {
+public class WordLearnedButtonAction implements ActionFactory {
     private final GridButtonOptions options;
+    private final String learnedPath = "src/main/resources/files/learned.ser";
     Map<String, String> learningWords;
     Map<String, String> learnedWords;
 
-    public LearnWordButtonAction(GridButtonOptions options) {
+    public WordLearnedButtonAction(GridButtonOptions options) {
         this.options = options;
     }
 
     @Override
     public void executeCommand() {
-        getWordsMap();
-        String word = saveWordInLearnedMap();
-        removeFromLearning(word);
-        addToLearnedFile();
-        setTextFields();
-        options.getWordsOnTextFields().startExecution();
+        if (!options.getWordsOnTextFields().getTranslateOfLearningWordField().getText().equals("Все слова выучены")) {
+            getWordsMap();
+            String word = saveWordInLearnedMap();
+            addToLearnedFile();
+            removeFromLearningMap(word);
+            setTextFields();
+        }
     }
 
     private String saveWordInLearnedMap() {
@@ -42,16 +44,16 @@ public class LearnWordButtonAction implements ActionFactory {
 
     private void getWordsMap() {
         learningWords = options.getWordsOnTextFields().learningWords;
-        learnedWords = FileWorker.getWords("src/main/resources/files/learned.ser").getAllWordsMap();
+        learnedWords = FileWorker.getWords(learnedPath).getAllWordsMap();
     }
 
-    private void removeFromLearning(String word) {
+    private void removeFromLearningMap(String word) {
         learningWords.remove(word);
         FileWorker.writeNewWordsInFile("src/main/resources/files/learning.ser", learningWords);
     }
 
     private void addToLearnedFile() {
-        FileWorker.writeNewWordsInFile("src/main/resources/files/learned.ser", learnedWords);
+        FileWorker.writeNewWordsInFile(learnedPath, learnedWords);
     }
 
     private void setTextFields() {

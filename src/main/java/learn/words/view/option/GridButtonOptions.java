@@ -1,6 +1,6 @@
 package learn.words.view.option;
 
-import learn.words.controller.action.learnwindowactions.LearnWordsOnTextFields;
+import learn.words.controller.action.learnwindowactions.WordsOnTextFields;
 import learn.words.view.window.AbstractWindowBuilder;
 import learn.words.view.window.TranslateWordWindow;
 
@@ -14,7 +14,7 @@ public class GridButtonOptions extends AbstractGridOptions {
     private JTextField inputTextField;
     private JTextField disabledTextField;
     private TranslateWordWindow translateWordWindow;
-    private LearnWordsOnTextFields wordsOnTextFields;
+    private WordsOnTextFields wordsOnTextFields;
 
     public GridButtonOptions(AbstractWindowBuilder newFrame, JFrame frame,
                              String buttonName, int gridX, int gridY) {
@@ -44,7 +44,7 @@ public class GridButtonOptions extends AbstractGridOptions {
         this.disabledTextField = disabledTextField;
     }
 
-    public GridButtonOptions(LearnWordsOnTextFields wordsOnTextFields, String action, int gridX, int gridY) {
+    public GridButtonOptions(WordsOnTextFields wordsOnTextFields, String action, int gridX, int gridY) {
         super(gridX, gridY);
         this.buttonName = action;
         this.wordsOnTextFields = wordsOnTextFields;
@@ -79,7 +79,7 @@ public class GridButtonOptions extends AbstractGridOptions {
         return translateWordWindow;
     }
 
-    public LearnWordsOnTextFields getWordsOnTextFields() {
+    public WordsOnTextFields getWordsOnTextFields() {
         return wordsOnTextFields;
     }
 }
