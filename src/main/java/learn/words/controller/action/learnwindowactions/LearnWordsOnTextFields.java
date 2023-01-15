@@ -8,19 +8,16 @@ import java.util.Map;
 public class LearnWordsOnTextFields {
     private final JTextField learningWordField;
     private final JTextField translateOfLearningWordField;
-    private JButton saveButton;
     Map<String, String> learningWords;
     private String word;
     private String translate;
 
-    public LearnWordsOnTextFields(JTextField learningWordField, JTextField translateOfLearningWordField, JButton saveButton) {
+    public LearnWordsOnTextFields(JTextField learningWordField, JTextField translateOfLearningWordField) {
         this.learningWordField = learningWordField;
         this.translateOfLearningWordField = translateOfLearningWordField;
-        this.saveButton = saveButton;
-        startExecution();
     }
 
-    private void startExecution() {
+    public void startExecution() {
         prepareWords();
         getWords();
         setWords();
@@ -28,10 +25,10 @@ public class LearnWordsOnTextFields {
     }
 
     private void prepareWords() {
-        learningWords = new LearningWords().startExecution();
+        learningWords = new WordFilesWorker().startExecution();
     }
 
-    private void getWords() {
+    public void getWords() {
         getLearningWord();
         getTranslate();
     }
@@ -55,10 +52,6 @@ public class LearnWordsOnTextFields {
         learningWordField.setText(word);
     }
 
-    private void setEmptyTranslationWord() {
-        translateOfLearningWordField.setText("");
-    }
-
     private void waitTime() {
         try {
             Thread.sleep(1000);
@@ -79,5 +72,13 @@ public class LearnWordsOnTextFields {
     private void setEmptyFields() {
         setLearningWord("");
         setTranslation("");
+    }
+
+    public JTextField getLearningWordField() {
+        return learningWordField;
+    }
+
+    public JTextField getTranslateOfLearningWordField() {
+        return translateOfLearningWordField;
     }
 }

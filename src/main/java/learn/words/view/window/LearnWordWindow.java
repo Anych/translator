@@ -15,6 +15,7 @@ public class LearnWordWindow extends AbstractWindowBuilder {
     private JTextField learningWord;
     private JTextField translateOfLearningWord;
     private JButton saveButton;
+    LearnWordsOnTextFields wordsOnTextFields;
     public LearnWordWindow() {
         super(WIDTH, HEIGHT);
         this.frame = new JFrame();
@@ -38,11 +39,13 @@ public class LearnWordWindow extends AbstractWindowBuilder {
         translateOfLearningWord = new LearnGridTextFieldFactory(constraints, pane,
                 new GridTextFieldOptions(frame, Color.WHITE, 0, 1)).getComponent();
 
+        wordsOnTextFields = new LearnWordsOnTextFields(learningWord, translateOfLearningWord);
+
         new ImageButtonFactory(constraints, pane, new GridButtonOptions(
                 new MainWindow(), frame, "exit", 2, 0));
 
         saveButton = new ImageButtonFactory(constraints, pane, new GridButtonOptions(
-                new MainWindow(), frame, "save", 2, 1)).getComponent();
+                wordsOnTextFields, "save", 2, 1)).getComponent();
     }
 
     @Override
@@ -61,7 +64,7 @@ public class LearnWordWindow extends AbstractWindowBuilder {
     }
 
     private void setWordsInFields() {
-        Runnable task = () -> new LearnWordsOnTextFields(learningWord, translateOfLearningWord, saveButton);
+        Runnable task = () -> wordsOnTextFields.startExecution();
         Thread thread = new Thread(task);
         thread.start();
     }

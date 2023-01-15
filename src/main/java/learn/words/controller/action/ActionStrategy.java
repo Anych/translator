@@ -1,6 +1,7 @@
 package learn.words.controller.action;
 
 
+import learn.words.controller.action.learnwindowactions.LearnWordButtonAction;
 import learn.words.controller.action.translatewindowactions.*;
 import learn.words.view.option.GridButtonOptions;
 
@@ -20,6 +21,7 @@ public class ActionStrategy implements ActionFactory {
             case "Сохранить" -> action = new SaveButtonAction(options);
             case "Перевести слово" -> action = new TranslateButtonAction(options);
             case "ChangeTranslation" -> action = new ChangeTranslationButtonsAction(options);
+            case "save" -> action = new LearnWordButtonAction(options);
             default -> action = new NewWindowButtonAction(options);
         }
     }
