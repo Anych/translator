@@ -27,15 +27,12 @@ public class WordLearnedButtonAction implements ActionFactory {
     @Override
     public void executeCommand() {
         if (wereAllWordsLearn()) {
-            interruptWordsOnTextFieldThread();
-            Thread thread = createWordsInTextFieldsInNewThread();
-            setNewOptions(thread);
+            Thread thread = prepareWordsOnTextFieldClass();
 
-            getWordsMap();
-            String word = saveWordInLearnedMap();
-            addToLearnedFile();
-            removeFromLearningMap(word);
+            saveWord();
+
             setTextFields();
+            continueExecution(thread);
         }
     }
 
@@ -44,22 +41,36 @@ public class WordLearnedButtonAction implements ActionFactory {
         return !translate.equals("Все слова выучены");
     }
 
+    private Thread prepareWordsOnTextFieldClass() {
+        interruptWordsOnTextFieldThread();
+        Thread thread = createWordsInTextFieldsInNewThread();
+        setNewOptions(thread);
+        return thread;
+    }
+
     private void interruptWordsOnTextFieldThread() {
         options.getThread().interrupt();
     }
 
-
     private Thread createWordsInTextFieldsInNewThread() {
         wordsOnTextFields = new WordsOnTextFields(learningTextField, translateOfLearningWord);
-        Runnable task = wordsOnTextFields::waitTime;
-        Thread thread = new Thread(task);
-        thread.start();
-        return thread;
+        Runnable task = wordsOnTextFields::startExecution;
+        return new Thread(task);
     }
 
     private void setNewOptions(Thread thread) {
-        options.setThread(thread);
         options.setWordsOnTextFields(wordsOnTextFields);
+        options.setThread(thread);
+    }
+
+    private void saveWord() {
+        getWordsMap();
+        String word = saveWordInLearnedMap();
+        addToLearnedFile();
+        removeFromLearningMap(word);
+    }
+    private void getWordsMap() {
+        learnedWords = FileWorker.getWords(learnedPath).getAllWordsMap();
     }
 
     private String saveWordInLearnedMap() {
@@ -77,10 +88,6 @@ public class WordLearnedButtonAction implements ActionFactory {
         return learningWords.get(word);
     }
 
-    private void getWordsMap() {
-        learnedWords = FileWorker.getWords(learnedPath).getAllWordsMap();
-    }
-
     private void addToLearnedFile() {
         FileWorker.writeNewWordsInFile(learnedPath, learnedWords);
     }
@@ -93,5 +100,9 @@ public class WordLearnedButtonAction implements ActionFactory {
     private void setTextFields() {
         learningTextField.setText("");
         translateOfLearningWord.setText("Выучено");
+    }
+
+    private void continueExecution(Thread thread) {
+        thread.start();
     }
 }
