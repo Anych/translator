@@ -15,6 +15,7 @@ public class WordLearnedButtonAction implements ActionFactory {
     private final String learnedPath = "src/main/resources/files/learned.ser";
     Map<String, String> learningWords;
     Map<String, String> learnedWords;
+    private Thread thread;
 
     public WordLearnedButtonAction(GridButtonOptions options) {
         this.options = options;
@@ -26,26 +27,24 @@ public class WordLearnedButtonAction implements ActionFactory {
 
     @Override
     public void executeCommand() {
-        if (wereAllWordsLearn()) {
-            Thread thread = prepareWordsOnTextFieldClass();
+        if (wereNotAllWordsLearn()) {
+            prepareWordsOnTextFieldClass();
 
             saveWord();
-
             setTextFields();
-            continueExecution(thread);
+            continueExecution();
         }
     }
 
-    private boolean wereAllWordsLearn() {
+    private boolean wereNotAllWordsLearn() {
         String translate = learningTextField.getText();
         return !translate.equals("Все слова выучены");
     }
 
-    private Thread prepareWordsOnTextFieldClass() {
+    private void prepareWordsOnTextFieldClass() {
         interruptWordsOnTextFieldThread();
-        Thread thread = createWordsInTextFieldsInNewThread();
-        setNewOptions(thread);
-        return thread;
+        thread = createWordsInTextFieldsInNewThread();
+        setNewOptions();
     }
 
     private void interruptWordsOnTextFieldThread() {
@@ -54,11 +53,11 @@ public class WordLearnedButtonAction implements ActionFactory {
 
     private Thread createWordsInTextFieldsInNewThread() {
         wordsOnTextFields = new WordsOnTextFields(learningTextField, translateOfLearningWord);
-        Runnable task = wordsOnTextFields::startExecution;
+        Runnable task = wordsOnTextFields::continueExecution;
         return new Thread(task);
     }
 
-    private void setNewOptions(Thread thread) {
+    private void setNewOptions() {
         options.setWordsOnTextFields(wordsOnTextFields);
         options.setThread(thread);
     }
@@ -66,9 +65,15 @@ public class WordLearnedButtonAction implements ActionFactory {
     private void saveWord() {
         getWordsMap();
         String word = saveWordInLearnedMap();
-        addToLearnedFile();
-        removeFromLearningMap(word);
+
+        if (word.equals("None")) {
+            translateOfLearningWord.setText("Дождитесь следующего слова");
+        } else {
+            addToLearnedFile();
+            removeFromLearningMap(word);
+        }
     }
+
     private void getWordsMap() {
         learnedWords = FileWorker.getWords(learnedPath).getAllWordsMap();
     }
@@ -76,8 +81,12 @@ public class WordLearnedButtonAction implements ActionFactory {
     private String saveWordInLearnedMap() {
         String word = getLearningWord();
         String translation = getTranslation(word);
-        learnedWords.put(word, translation);
-        return word;
+        if (translation.equals("None") || word.isEmpty()) {
+            return "None";
+        } else {
+            learnedWords.put(word, translation);
+            return word;
+        }
     }
 
     private String getLearningWord() {
@@ -85,7 +94,11 @@ public class WordLearnedButtonAction implements ActionFactory {
     }
 
     private String getTranslation(String word) {
-        return learningWords.get(word);
+        try {
+            return learningWords.get(word);
+        } catch (NullPointerException e) {
+            return "None;";
+        }
     }
 
     private void addToLearnedFile() {
@@ -99,10 +112,12 @@ public class WordLearnedButtonAction implements ActionFactory {
 
     private void setTextFields() {
         learningTextField.setText("");
-        translateOfLearningWord.setText("Выучено");
+        if (!translateOfLearningWord.getText().equals("Дождитесь следующего слова")) {
+            translateOfLearningWord.setText("Выучено");
+        }
     }
 
-    private void continueExecution(Thread thread) {
+    private void continueExecution() {
         thread.start();
     }
 }

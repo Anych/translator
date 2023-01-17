@@ -3,9 +3,7 @@ package learn.words.controller.action.learnwindowactions;
 import learn.words.controller.RandomKey;
 
 import javax.swing.*;
-import java.lang.reflect.Method;
 import java.util.Map;
-import java.util.function.Consumer;
 
 public class WordsOnTextFields {
     private final JTextField learningWordField;
@@ -20,13 +18,13 @@ public class WordsOnTextFields {
     }
 
     public void startExecution() {
+        setEmptyFields();
         prepareWords();
+
         if (learningWords.size() > 0) {
             getWords();
             setWords();
-            if (!Thread.currentThread().isInterrupted()) {
-                continueExecution();
-            }
+            continueExecution();
         } else {
             setTranslation("Все слова выучены");
         }
@@ -59,9 +57,6 @@ public class WordsOnTextFields {
         if (!Thread.currentThread().isInterrupted()) {
             setTranslation(translate);
         }
-        if (!Thread.currentThread().isInterrupted()) {
-            waitTime();
-        }
     }
 
     private void setLearningWord(String word) {
@@ -80,9 +75,12 @@ public class WordsOnTextFields {
         translateOfLearningWordField.setText(word);
     }
 
-    private void continueExecution() {
-        setEmptyFields();
-        startExecution();
+    public void continueExecution() {
+        if (!Thread.currentThread().isInterrupted()) {
+            waitTime();
+            setEmptyFields();
+            startExecution();
+        }
     }
 
     private void setEmptyFields() {
@@ -96,9 +94,5 @@ public class WordsOnTextFields {
 
     public JTextField getTranslateOfLearningWordField() {
         return translateOfLearningWordField;
-    }
-
-    public void asd() {
-        System.out.println(Thread.currentThread().getName());
     }
 }
