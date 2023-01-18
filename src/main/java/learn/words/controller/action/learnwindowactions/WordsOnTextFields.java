@@ -1,6 +1,6 @@
 package learn.words.controller.action.learnwindowactions;
 
-import learn.words.controller.RandomKey;
+import learn.words.controller.utility.RandomKey;
 
 import javax.swing.*;
 import java.util.Map;

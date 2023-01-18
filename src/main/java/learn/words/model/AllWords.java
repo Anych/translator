@@ -17,10 +17,6 @@ public class AllWords implements Serializable {
         allWords.put(word, translate);
     }
 
-    public int getAllWordsSize() {
-        return getAllWordsMap().size();
-    }
-
     public Map<String, String> getAllWordsMap() {
         return allWords;
     }

@@ -1,7 +1,6 @@
-package learn.words.controller.translator;
+package learn.words.controller.utility;
 
 import com.google.gson.Gson;
-import learn.words.controller.FileWorker;
 import learn.words.model.json.TranslateResponse;
 import org.asynchttpclient.AsyncHttpClient;
 import org.asynchttpclient.DefaultAsyncHttpClient;

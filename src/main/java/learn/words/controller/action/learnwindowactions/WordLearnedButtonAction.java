@@ -1,6 +1,6 @@
 package learn.words.controller.action.learnwindowactions;
 
-import learn.words.controller.FileWorker;
+import learn.words.controller.utility.FileWorker;
 import learn.words.controller.action.ActionFactory;
 import learn.words.view.option.GridButtonOptions;
 

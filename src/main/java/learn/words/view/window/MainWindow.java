@@ -7,8 +7,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class MainWindow extends AbstractWindowBuilder {
-    private static final int WIDTH = 400;
-    private static final int HEIGHT = 90;
+    private static final int WIDTH = 270;
+    private static final int HEIGHT = 65;
 
     public MainWindow() {
         super(WIDTH, HEIGHT);
@@ -18,13 +18,11 @@ public class MainWindow extends AbstractWindowBuilder {
     @Override
     public void createComponents() {
         new GridButtonFactory(constraints, pane, new GridButtonOptions(
-                new TranslateWordWindow(), frame, "Добавить слово", 0, 0));
+                new TranslateWordWindow(), frame,
+                "Добавить слово", 0, 0));
         new GridButtonFactory(constraints, pane, new GridButtonOptions(
-                new LearnWordWindow(), frame, "Выучить новые слова", 1, 0));
-        new GridButtonFactory(constraints, pane, new GridButtonOptions(
-                new TranslateWordWindow(), frame, "Посмотреть выученные слова", 0, 1));
-        new GridButtonFactory(constraints, pane, new GridButtonOptions(
-                new TranslateWordWindow(), frame, "Посмотреть список слов", 1, 1));
+                new LearnWordWindow(), frame,
+                "Выучить слова", 1, 0));
     }
 
     @Override

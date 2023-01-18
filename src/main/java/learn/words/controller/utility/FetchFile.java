@@ -1,6 +1,4 @@
-package learn.words;
-
-import learn.words.controller.FileWorker;
+package learn.words.controller.utility;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

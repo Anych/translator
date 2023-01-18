@@ -1,4 +1,4 @@
-package learn.words.controller;
+package learn.words.controller.utility;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,7 +1,7 @@
 package learn.words.controller.action.learnwindowactions;
 
-import learn.words.controller.FileWorker;
-import learn.words.controller.RandomKey;
+import learn.words.controller.utility.FileWorker;
+import learn.words.controller.utility.RandomKey;
 
 import java.util.Map;
 

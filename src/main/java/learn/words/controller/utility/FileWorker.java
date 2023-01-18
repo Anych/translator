@@ -1,4 +1,4 @@
-package learn.words.controller;
+package learn.words.controller.utility;
 
 import learn.words.model.AllWords;
 
